@@ -1,7 +1,3 @@
-/* ==========================================================
-   Estilos de la plataforma. Colores y medidas en :root.
-   Para cambiar la paleta, edita solo las variables.
-   ========================================================== */
 :root{
   --marino:#12203A; --marino-2:#1A2C4D; --marino-3:#2F4574;
   --tinta:#1B2740; --suave:#4A5873; --fondo:#F5F7FB; --tarjeta:#FFFFFF; --borde:#D9DFEA;
