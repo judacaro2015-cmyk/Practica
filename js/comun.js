@@ -30,6 +30,31 @@ function mezclar(lista) {
   return a;
 }
 
+/* Convierte un texto (o una lista de textos) en párrafos. Si está vacío devuelve []. */
+function parrafos(x) {
+  const lista = Array.isArray(x) ? x : (x ? [x] : []);
+  return lista
+    .filter(t => t && String(t).trim())
+    .map(t => h("p", { text: t }));
+}
+
+/* Recuadro punteado que marca un espacio que el docente aún debe redactar. */
+function espacioLibre(mensaje) {
+  return h("div", { class: "espacio-libre" }, mensaje);
+}
+
+/* Grados de una unidad. Acepta grados:[8, 9] o el formato anterior grado:9. */
+function gradosDe(u) {
+  if (Array.isArray(u.grados)) return u.grados;
+  return u.grado ? [u.grado] : [];
+}
+
+function etiquetaGrados(u) {
+  const g = gradosDe(u);
+  if (!g.length) return "Todos los grados";
+  return (g.length === 1 ? "Grado " : "Grados ") + g.map(x => x + "°").join(", ");
+}
+
 /* Progreso guardado en el navegador del estudiante (localStorage). */
 const Progreso = {
   clave: "proyecto-progreso-v1",
