@@ -1,11 +1,13 @@
 "use strict";
-/* Página de inicio: arma grados, unidades, simulaciones, retos y progreso. */
+/* Página de inicio: arma temáticas, grados, unidades, simulaciones, retos y progreso. */
 (function () {
   aplicarProyecto();
   document.title = PROYECTO.nombre;
 
   let gradoActivo = PROYECTO.gradoPiloto;
-  const unidadesDe = g => UNIDADES.filter(u => u.grado === g);
+  const unidadesDe = g => UNIDADES.filter(u => gradosDe(u).includes(g));
+  const enlaceUnidad = (u, paso) =>
+    "unidad.html?u=" + encodeURIComponent(u.id) + (paso ? "&paso=" + paso : "");
 
   function pctGrado(g) {
     const us = unidadesDe(g);
@@ -25,7 +27,7 @@
     document.getElementById("tp-texto").textContent = n + (n === 1 ? " paso completado" : " pasos completados");
     const ganadas = Progreso.insignias()
       .map(id => UNIDADES.find(u => u.id === id))
-      .filter(Boolean);
+      .filter(u => u && u.reta && u.reta.insignia);
     const slots = [];
     for (let i = 0; i < 3; i++) {
       const u = ganadas[i];
@@ -34,6 +36,36 @@
         : h("div", { class: "slot", text: "insignia" }));
     }
     document.getElementById("tp-slots").replaceChildren(...slots);
+  }
+
+  /* ---- Temáticas (con espacios de introducción libres) ---- */
+  function pintarTematicas() {
+    document.getElementById("tem-titulo").textContent = PROYECTO.tituloTematicas || "Temáticas del proyecto";
+
+    const intro = parrafos(PROYECTO.introGeneral);
+    document.getElementById("tem-intro").replaceChildren(
+      ...(intro.length
+        ? intro
+        : [espacioLibre("Espacio para tu introducción general: aquí se explican las generalidades de las temáticas. Escríbela en js/datos.js, en PROYECTO.introGeneral.")]));
+
+    document.getElementById("tem-lista").replaceChildren(...UNIDADES.map(u => {
+      const introU = parrafos(u.introduccion);
+      const subs = u.subtemas || [];
+      return h("article", { class: "tema-card" },
+        h("div", { class: "tags" },
+          h("span", { class: "tag tag-verde", text: u.tema || "Temática" }),
+          h("span", { class: "tag", text: etiquetaGrados(u) })),
+        h("h3", { text: u.titulo }),
+        introU.length
+          ? introU
+          : espacioLibre("Espacio para la introducción de esta temática (campo introduccion en js/datos.js)."),
+        subs.length
+          ? h("details", { class: "subtemas" },
+              h("summary", { text: "Contenidos (" + subs.length + ")" }),
+              h("ul", {}, subs.map(s => h("li", { text: s }))))
+          : null,
+        h("a", { class: "btn btn-verde", href: enlaceUnidad(u) }, "Entrar a la unidad"));
+    }));
   }
 
   /* ---- Grados ---- */
@@ -63,10 +95,10 @@
     } else {
       panel.replaceChildren(titulo, h("div", { class: "rejilla-3" }, us.map(u => {
         const hechos = Progreso.pasosDe(u.id);
-        return h("a", { class: "u-tarjeta", href: "unidad.html?u=" + encodeURIComponent(u.id) },
-          h("div", { class: "tags" }, h("span", { class: "tag", text: u.tema })),
+        return h("a", { class: "u-tarjeta", href: enlaceUnidad(u) },
+          h("div", { class: "tags" }, h("span", { class: "tag", text: u.tema || "Temática" })),
           h("h4", { text: u.titulo }),
-          h("p", { class: "suave", text: u.objetivo }),
+          h("p", { class: "suave", text: u.objetivo || "" }),
           h("span", { class: "estado", text: hechos === 4 ? "Unidad completada" : hechos + " de 4 pasos" })
         );
       })));
@@ -76,36 +108,39 @@
 
   /* ---- Simulaciones ---- */
   function pintarSims() {
-    document.getElementById("sims-lista").replaceChildren(...UNIDADES.map(u =>
+    const conSim = UNIDADES.filter(u => u.simulacion && u.simulacion.nombre);
+    document.getElementById("sims-lista").replaceChildren(...conSim.map(u =>
       h("div", { class: "sim-card" },
         h("div", { class: "vista" },
           u.simulacion.imagen
             ? h("img", { src: u.simulacion.imagen, alt: "Vista previa de " + u.simulacion.nombre, loading: "lazy" })
             : u.simulacion.nombre),
         h("div", { class: "tags" },
-          h("span", { class: "tag", text: "Grado " + u.grado + "°" }),
-          h("span", { class: "tag", text: u.tema })),
+          h("span", { class: "tag", text: etiquetaGrados(u) }),
+          h("span", { class: "tag", text: u.tema || "Temática" })),
         h("h3", { text: u.simulacion.nombre }),
-        h("p", { text: u.simulacion.descripcion }),
-        h("a", { class: "btn btn-violeta", href: "unidad.html?u=" + encodeURIComponent(u.id) + "&paso=simula", style: "align-self:flex-start" }, "Abrir")
+        h("p", { text: u.simulacion.descripcion || "" }),
+        h("a", { class: "btn btn-violeta", href: enlaceUnidad(u, "simula"), style: "align-self:flex-start" }, "Abrir")
       )));
   }
 
   /* ---- Retos ---- */
   function pintarRetos() {
     const ganadas = Progreso.insignias();
-    document.getElementById("insignias-lista").replaceChildren(...UNIDADES.map(u =>
+    const conReto = UNIDADES.filter(u => u.reta && u.reta.titulo);
+    document.getElementById("insignias-lista").replaceChildren(...conReto.map(u =>
       h("div", {
         class: "insignia" + (ganadas.includes(u.id) ? " ganada" : ""),
-        title: u.reta.insignia
-      }, ganadas.includes(u.id) ? u.reta.insignia : "?")));
-    document.getElementById("misiones-lista").replaceChildren(...UNIDADES.map((u, i) =>
-      h("a", { class: "mision", href: "unidad.html?u=" + encodeURIComponent(u.id) + "&paso=reta" },
+        title: u.reta.insignia || ""
+      }, ganadas.includes(u.id) ? (u.reta.insignia || "¡Logrado!") : "?")));
+    document.getElementById("misiones-lista").replaceChildren(...conReto.map((u, i) =>
+      h("a", { class: "mision", href: enlaceUnidad(u, "reta") },
         h("span", { class: "num", text: String(i + 1) }),
-        h("span", {}, h("strong", { text: u.reta.titulo }), h("small", { text: "Grado " + u.grado + "° · " + u.titulo })))));
+        h("span", {}, h("strong", { text: u.reta.titulo }), h("small", { text: etiquetaGrados(u) + " · " + u.titulo })))));
   }
 
   pintarProgreso();
+  pintarTematicas();
   pintarGrados();
   pintarUnidades(false);
   pintarSims();
