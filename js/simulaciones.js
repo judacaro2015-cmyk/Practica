@@ -22,7 +22,8 @@ const SIMULACIONES = {};
     NOT:  (a) => 1 - a,
     NAND: (a, b) => 1 - (a & b),
     NOR:  (a, b) => 1 - (a | b),
-    XOR:  (a, b) => a ^ b
+    XOR:  (a, b) => a ^ b,
+    XNOR: (a, b) => 1 - (a ^ b)
   };
 
   SIMULACIONES.compuertas = {
