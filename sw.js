@@ -1,6 +1,6 @@
 /* Service worker: guarda la web en el dispositivo para que cargue rápido y
    funcione sin conexión. Sirve lo guardado y lo actualiza en segundo plano. */
-const CACHE = "proyecto-v1";
+const CACHE = "proyecto-v2";
 const ARCHIVOS = [
   "./", "index.html", "unidad.html", "css/styles.css",
   "js/datos.js", "js/comun.js", "js/app.js", "js/unidad.js", "js/actividades.js", "js/simulaciones.js"
