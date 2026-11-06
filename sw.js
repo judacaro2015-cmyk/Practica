@@ -1,6 +1,6 @@
 /* Service worker: guarda la web en el dispositivo para que cargue rápido y
    funcione sin conexión. Sirve lo guardado y lo actualiza en segundo plano. */
-const CACHE = "proyecto-v2";
+const CACHE = "proyecto-v3";
 const ARCHIVOS = [
   "./", "index.html", "unidad.html", "css/styles.css",
   "js/datos.js", "js/comun.js", "js/app.js", "js/unidad.js", "js/actividades.js", "js/simulaciones.js"
@@ -18,6 +18,8 @@ self.addEventListener("activate", e => {
   );
 });
 
+/* Primero la red (para que siempre llegue la versión nueva); si está lenta o
+   sin conexión (más de 4 s), usa lo guardado en el dispositivo. */
 self.addEventListener("fetch", e => {
   if (e.request.method !== "GET") return;
   e.respondWith(caches.open(CACHE).then(async c => {
@@ -25,7 +27,9 @@ self.addEventListener("fetch", e => {
     const red = fetch(e.request).then(r => {
       if (r && r.ok && new URL(e.request.url).origin === self.location.origin) c.put(e.request, r.clone());
       return r;
-    }).catch(() => guardado);
-    return guardado || red;
+    });
+    if (!guardado) return red;
+    const limite = new Promise(res => setTimeout(() => res(guardado), 4000));
+    return Promise.race([red.catch(() => guardado), limite]);
   }));
 });
