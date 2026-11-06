@@ -166,7 +166,9 @@ const Actividades = (function () {
         type: "button", class: "btn btn-ambar oculto", style: "align-self:flex-start",
         onclick: () => { i++; pintar(); }
       }, i === total - 1 ? "Ver resultado" : "Siguiente pregunta");
-      q.opciones.forEach((o, k) => {
+      const orden = mezclar(q.opciones.map((_, k) => k));
+      orden.forEach(k => {
+        const o = q.opciones[k];
         const b = h("button", {
           type: "button", class: "opcion",
           onclick: () => {
@@ -181,12 +183,12 @@ const Actividades = (function () {
             sig.classList.remove("oculto");
           }
         }, o);
-        opciones.push(b);
+        opciones[k] = b;
       });
       cont.replaceChildren(
         h("p", { class: "progreso-q", text: "Pregunta " + (i + 1) + " de " + total }),
         h("p", { class: "pregunta", text: q.p }),
-        h("div", { class: "opciones" }, opciones),
+        h("div", { class: "opciones" }, orden.map(k => opciones[k])),
         msg, sig);
     }
     pintar();
