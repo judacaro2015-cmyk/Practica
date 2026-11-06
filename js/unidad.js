@@ -151,6 +151,10 @@
 
     if (motor) {
       motor.montar(area, ctx);
+      if (sm.externa && sm.externa.url) {
+        area.append(h("p", { class: "sim-nota" }, "Opcional: ",
+          h("a", { href: sm.externa.url, target: "_blank", rel: "noopener noreferrer" }, sm.externa.texto || "Abrir otra herramienta")));
+      }
     } else if (sm.externa && sm.externa.url) {
       area.classList.add("sim-externa");
       area.append(
