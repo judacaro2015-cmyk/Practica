@@ -45,7 +45,7 @@ const PROYECTO = {
      vocabulario  : [{t, d}]
      explora      : { tiempo, texto:[...], instrucciones:[...] }
      simulacion   : { id, nombre, descripcion, tiempo, instrucciones, pista, observar, externa:{texto,url} }
-                    id "compuertas" o "binario" = simulación propia de la web.
+                    id "compuertas", "binario", "circuito", "actuadores" o "tiempos" = simulación propia de la web.
                     externa = botón que abre otra herramienta (por ejemplo Tinkercad).
                     Si no pones simulacion, el paso muestra un espacio reservado.
      practica     : { tiempo, instrucciones, pista, actividades:[...] }
@@ -151,14 +151,14 @@ const UNIDADES = [
       instrucciones: ["Lee la introducción y los contenidos de la temática.", "Cuando estés listo, pasa a Simula."]
     },
     simulacion: {
-      id: "externa",
-      nombre: "Circuitos en Tinkercad",
-      descripcion: "Arma y simula un circuito con Arduino, un LDR y un LED.",
+      id: "circuito",
+      nombre: "Laboratorio de circuitos básicos",
+      descripcion: "Cambia el voltaje y la resistencia (ley de Ohm) y controla un relé con un sensor de luz, sin Arduino.",
       tiempo: "~10 min",
-      externa: { texto: "Abrir Tinkercad", url: "https://www.tinkercad.com/" },
-      instrucciones: ["Abre Tinkercad y entra a la sección de circuitos.", "Arma un circuito con un LDR y un LED, y pulsa Iniciar simulación.", "Cambia la luz sobre el LDR y observa cómo responde el circuito.", "Vuelve aquí y marca el paso como completado."],
-      pista: "El LDR necesita una resistencia en serie para formar un divisor de voltaje.",
-      observar: "¿Qué pasa con la resistencia del LDR cuando aumenta la luz?"
+      externa: { texto: "Probar también en Tinkercad", url: "https://www.tinkercad.com/" },
+      instrucciones: ["En Ley de Ohm, cambia el voltaje y la resistencia y mira la corriente.", "Busca la combinación que haga brillar el LED sin quemarlo.", "En Sensor de luz y relé, cambia la luz y mira cuándo se activa el relé."],
+      pista: "Más resistencia significa menos corriente. El LED se quema si pasa demasiada.",
+      observar: "¿Qué pasa con la resistencia del LDR cuando aumenta la luz, y cuándo se activa el relé?"
     },
     practica: {
       tiempo: "~5 min",
@@ -218,14 +218,14 @@ const UNIDADES = [
       instrucciones: ["Lee la introducción y los contenidos de la temática.", "Cuando estés listo, pasa a Simula."]
     },
     simulacion: {
-      id: "externa",
-      nombre: "Actuadores con Arduino en Tinkercad",
-      descripcion: "Simula un servomotor controlado por Arduino y cambia su movimiento desde el código.",
+      id: "actuadores",
+      nombre: "Laboratorio de actuadores",
+      descripcion: "Mueve un servomotor, un motor DC, un motor paso a paso y un solenoide, y calcula la porción de comida.",
       tiempo: "~10 min",
-      externa: { texto: "Abrir Tinkercad", url: "https://www.tinkercad.com/" },
-      instrucciones: ["Abre Tinkercad y entra a la sección de circuitos.", "Conecta un servomotor a un Arduino y cambia el ángulo en el código.", "Vuelve aquí y marca el paso como completado."],
-      pista: "Prueba distintos ángulos y tiempos para ver cómo cambia el movimiento.",
-      observar: "¿Qué cambia en el movimiento si modificas el tiempo de activación?"
+      externa: { texto: "Probar también en Tinkercad", url: "https://www.tinkercad.com/" },
+      instrucciones: ["Recorre las pestañas y mueve cada actuador.", "En Porción de comida, elige un mecanismo y ajusta tiempo y velocidad hasta entregar 50 g."],
+      pista: "La porción es el flujo del mecanismo multiplicado por el tiempo de activación.",
+      observar: "¿Qué cambia en la porción si duplicas el tiempo? ¿Y si cambias de mecanismo?"
     },
     practica: {
       tiempo: "~5 min",
@@ -286,13 +286,13 @@ const UNIDADES = [
       instrucciones: ["Lee la introducción y los contenidos de la temática.", "Cuando estés listo, pasa a Simula."]
     },
     simulacion: {
-      id: "externa",
-      nombre: "Control de tiempos en Tinkercad",
-      descripcion: "Programa un LED que parpadee con delay() y luego con millis().",
+      id: "tiempos",
+      nombre: "Laboratorio de control de tiempos",
+      descripcion: "Compara delay() con millis() y mira cómo un reloj RTC con batería dispara la hora de comida.",
       tiempo: "~10 min",
-      externa: { texto: "Abrir Tinkercad", url: "https://www.tinkercad.com/" },
-      instrucciones: ["Abre Tinkercad y entra a la sección de circuitos.", "Programa un LED que parpadee usando delay().", "Cámbialo para que use millis() y compara.", "Vuelve aquí y marca el paso como completado."],
-      pista: "Con millis() guardas el instante de la última acción y lo comparas con el tiempo actual.",
+      externa: { texto: "Probar también en Tinkercad", url: "https://www.tinkercad.com/" },
+      instrucciones: ["En delay() frente a millis(), pulsa el botón en cada modo y compara la respuesta.", "En Reloj RTC y alarma, corta la energía con y sin batería del RTC y observa qué pasa con la hora."],
+      pista: "Con delay() el programa se detiene; con millis() sigue haciendo otras tareas.",
       observar: "¿Qué puede hacer el Arduino con millis() que no puede hacer con delay()?"
     },
     practica: {
