@@ -62,7 +62,7 @@ const Progreso = {
   leer() {
     try {
       const d = JSON.parse(localStorage.getItem(this.clave));
-      if (d && d.unidades) return d;
+      if (d && d.unidades) { if (!Array.isArray(d.insignias)) d.insignias = []; return d; }
     } catch (e) { /* sin almacenamiento */ }
     return { unidades: {}, insignias: [] };
   },
