@@ -30,8 +30,9 @@ const PROYECTO = {
   introGeneral: "",
 
   // Enlaces: pega aquí las direcciones de tus formularios (Google Forms, etc.)
-  encuestaEstudiantes: "#docentes",
-  encuestaDocentes: "#docentes",
+  // (Los enlaces de las encuestas están escritos directamente en index.html.)
+  encuestaEstudiantes: "https://forms.gle/7653KoqGijDFwjg96",
+  encuestaDocentes: "https://forms.gle/LhzL1hiG9Kx3n8Hq7",
   guiaDocente: "#docentes"
 };
 
