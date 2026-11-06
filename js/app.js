@@ -139,10 +139,12 @@
         h("span", {}, h("strong", { text: u.reta.titulo }), h("small", { text: etiquetaGrados(u) + " · " + u.titulo })))));
   }
 
-  pintarProgreso();
-  pintarTematicas();
-  pintarGrados();
-  pintarUnidades(false);
-  pintarSims();
-  pintarRetos();
+  /* Cada sección se pinta por separado: si una falla, las demás siguen funcionando. */
+  const faltan = ["h", "parrafos", "espacioLibre", "gradosDe", "etiquetaGrados", "Progreso"]
+    .filter(n => { try { return typeof eval(n) === "undefined"; } catch (e) { return true; } });
+  if (faltan.length) {
+    console.error("Falta actualizar js/comun.js (no define: " + faltan.join(", ") + ")");
+  }
+  [pintarProgreso, pintarGrados, () => pintarUnidades(false), pintarTematicas, pintarSims, pintarRetos]
+    .forEach(f => { try { f(); } catch (e) { console.error(e); } });
 })();
