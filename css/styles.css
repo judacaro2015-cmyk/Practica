@@ -253,6 +253,24 @@ p{margin:0}
 .panel ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
 .sim-externa{min-height:0;align-items:flex-start}
 
+/* Simulaciones propias: controles, lecturas, avisos */
+.sim-panel{display:flex;flex-direction:column;gap:14px}
+.ctl{display:flex;flex-direction:column;gap:4px;font-weight:700;font-size:15px;color:var(--tinta)}
+.ctl input[type=range]{width:100%;min-height:32px;accent-color:var(--violeta)}
+.ctl output{font-weight:800;color:var(--violeta-o)}
+.lectura{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px}
+.lectura>div{background:#fff;border:1px solid #D4D0F5;border-radius:10px;padding:8px 10px;font-size:14px;color:var(--suave)}
+.lectura strong{display:block;font-size:19px;color:var(--tinta)}
+.aviso-sim{padding:10px 12px;border-radius:10px;font-weight:700;font-size:15px;background:var(--verde-t);color:var(--verde)}
+.aviso-sim.mal{background:var(--coral-t);color:var(--coral)}
+.aviso-sim.ojo{background:var(--ambar-t);color:var(--ambar-o)}
+.codigo{background:var(--marino);color:#E6ECF8;border-radius:10px;padding:12px;font:13px/1.5 ui-monospace,Consolas,monospace;white-space:pre-wrap;overflow-x:auto;margin:0}
+.reloj{font:800 44px/1 ui-monospace,Consolas,monospace;text-align:center;background:var(--marino);color:var(--verde-vivo);border-radius:12px;padding:16px}
+.reloj.apagado{color:#566178}
+@keyframes giro{to{transform:rotate(360deg)}}
+.gira{transform-box:fill-box;transform-origin:center;animation:giro linear infinite}
+@media (prefers-reduced-motion:reduce){.gira{animation:none}.sim-svg *{transition:none!important}}
+
 @media (max-width:600px){
   .seccion{padding:48px 0}
   .portada .interno{padding-top:48px;padding-bottom:56px}
