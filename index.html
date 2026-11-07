@@ -6,13 +6,14 @@
 <title>Inicio</title>
 <meta name="description" content="Plataforma de simulaciones, actividades didácticas y retos de Tecnología e Informática.">
 <meta name="theme-color" content="#12203A">
+<link rel="icon" href="img/escudo-colegio.jpg">
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
 <header class="cabecera">
   <div class="contenedor interno">
-    <a class="marca" href="index.html"><span class="marca-logo" aria-hidden="true">L</span><span data-p="nombre">[NOMBRE DEL PROYECTO]</span></a>
+    <a class="marca" href="index.html"><span class="escudos"><img class="escudo" src="img/escudo-colegio.jpg" alt="" width="46" height="46"><img class="escudo" src="img/escudo-universidad.png" alt="" width="46" height="46"></span><span class="marca-nombre" data-p="nombre">[NOMBRE DEL PROYECTO]</span></a>
     <nav class="menu" aria-label="Principal">
       <a href="#tematicas">Temáticas</a>
       <a href="#grados">Grados</a>
@@ -27,11 +28,16 @@
 <main>
   <!-- PORTADA -->
   <section class="portada">
+    <div class="bits-deco" aria-hidden="true">0110 1001 1100 0101 1010 0011 1110 0100 0111 1000 0001 1011 0101 1100 0010 1111 0110 1001 1100 0101 1010 0011 1110 0100</div>
     <div class="contenedor interno">
       <div class="portada-texto">
         <div class="etiqueta-hero"><span data-p="area">Tecnología e Informática</span> · <span data-p="colegio">Colegio</span></div>
         <h1 data-p="nombre">[NOMBRE DEL PROYECTO]</h1>
         <p class="portada-sub" data-p="frase">[Frase corta]</p>
+        <div class="presenta">
+          <span class="escudos"><img class="escudo" src="img/escudo-colegio.jpg" alt="Escudo del Colegio OEA IED" width="52" height="52"><img class="escudo" src="img/escudo-universidad.png" alt="Escudo de la universidad" width="52" height="52"></span>
+          <span><span data-p="colegio">Colegio</span> · <span data-p="universidad">Universidad</span></span>
+        </div>
         <div class="botones">
           <a class="btn btn-ambar" href="#grados">Elegir mi grado</a>
           <a class="btn btn-borde" href="#simulaciones">Ver simulaciones</a>
@@ -62,7 +68,7 @@
   <section class="seccion" id="grados">
     <div class="contenedor">
       <div class="encabezado">
-        <h2>Elige tu grado</h2>
+        <h2>Elige tu nivel (grado)</h2>
         <p>Cada grado tiene sus unidades. Entra a la que te toca o explora otras.</p>
       </div>
       <div class="rejilla-g" id="grados-lista"></div>
@@ -74,8 +80,8 @@
   <section class="seccion" style="padding-top:0">
     <div class="contenedor">
       <div class="encabezado">
-        <h2>Cómo funciona cada unidad</h2>
-        <p>Cuatro pasos cortos, siempre en el mismo orden, para no perder la atención.</p>
+        <h2>Tu misión en 4 pasos</h2>
+        <p>Cada unidad es una misión corta. Completa los pasos, gana insignias y sube de nivel.</p>
       </div>
       <div class="rejilla">
         <div class="paso p1"><span class="num">1</span><h3>Explora</h3><p>Lee la idea central en pocas líneas.</p><span class="tiempo">~3 min</span></div>
@@ -149,7 +155,10 @@
 
 <footer class="pie">
   <div class="contenedor interno">
-    <div><strong data-p="nombre">[NOMBRE DEL PROYECTO]</strong><span data-p="colegio"></span> · <span data-p="area"></span></div>
+    <div class="bloque">
+      <span class="escudos"><img class="escudo" src="img/escudo-colegio.jpg" alt="Escudo del Colegio OEA IED" width="46" height="46"><img class="escudo" src="img/escudo-universidad.png" alt="Escudo de la universidad" width="46" height="46"></span>
+      <div><strong data-p="nombre">[NOMBRE DEL PROYECTO]</strong><span data-p="colegio"></span> · <span data-p="area"></span></div>
+    </div>
     <div>Práctica pedagógica · <span data-p="anio"></span><br><span data-p="autor"></span> · <span data-p="universidad"></span></div>
   </div>
 </footer>
