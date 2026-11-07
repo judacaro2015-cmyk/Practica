@@ -71,6 +71,15 @@
   /* ---- Grados ---- */
   function pintarGrados() {
     const cont = document.getElementById("grados-lista");
+    if (PROYECTO.grados.length === 1) {
+      /* Un solo grado: no hay nada que elegir, se muestran sus unidades directamente. */
+      gradoActivo = PROYECTO.grados[0];
+      cont.style.display = "none";
+      document.getElementById("panel-unidades").style.marginTop = "0";
+      document.getElementById("grados-titulo").textContent = "Unidades de grado " + gradoActivo + "°";
+      document.getElementById("grados-sub").textContent = "Elige una unidad y completa sus 4 pasos.";
+      return;
+    }
     cont.replaceChildren(...PROYECTO.grados.map(g => {
       const n = unidadesDe(g).length;
       return h("button", {
@@ -89,11 +98,11 @@
   function pintarUnidades(desplazar) {
     const panel = document.getElementById("panel-unidades");
     const us = unidadesDe(gradoActivo);
-    const titulo = h("h3", { text: "Unidades de grado " + gradoActivo + "°" });
+    const titulo = PROYECTO.grados.length === 1 ? null : h("h3", { text: "Unidades de grado " + gradoActivo + "°" });
     if (!us.length) {
-      panel.replaceChildren(titulo, h("p", { class: "suave", text: "Aún no hay unidades para este grado." }));
+      panel.replaceChildren(...[titulo, h("p", { class: "suave", text: "Aún no hay unidades para este grado." })].filter(Boolean));
     } else {
-      panel.replaceChildren(titulo, h("div", { class: "rejilla-3" }, us.map(u => {
+      panel.replaceChildren(...[titulo, h("div", { class: "rejilla-3" }, us.map(u => {
         const hechos = Progreso.pasosDe(u.id);
         return h("a", { class: "u-tarjeta", href: enlaceUnidad(u) },
           h("div", { class: "tags" }, h("span", { class: "tag", text: u.tema || "Temática" })),
@@ -101,7 +110,7 @@
           h("p", { class: "suave", text: u.objetivo || "" }),
           h("span", { class: "estado", text: hechos === 4 ? "Unidad completada" : hechos + " de 4 pasos" })
         );
-      })));
+      }))].filter(Boolean));
     }
     if (desplazar) panel.scrollIntoView({ block: "nearest" });
   }
