@@ -253,7 +253,7 @@ const SIMULACIONES = {};
       hilo(120, 170, est.luz > 5); hilo(280, 330, true); hilo(430, 480, activo);
       caja(20, 100, "Luz", est.luz + " %", "#F5A524");
       svg.append(s("circle", { cx: 70, cy: 30, r: 14, fill: "#F5A524", "fill-opacity": (0.15 + est.luz / 118).toFixed(2) }));
-      caja(170, 110, "LDR", (rl / 1000).toFixed(1) + " kΩ", "#5B4BDB");
+      caja(170, 110, "LDR", (rl / 1000).toFixed(1) + " kΩ", "#3A4FDB");
       caja(330, 100, "Relé", activo ? "ACTIVADO" : "reposo", activo ? "#0B7F72" : "#8A94A8");
       caja(480, 110, "Dispensador", activo ? "ABIERTO" : "cerrado", activo ? "#0B7F72" : "#C93B3B");
       svg.append(T(225, 175, vout.toFixed(2) + " V en el divisor", { "font-size": 14, fill: "#4A5873" }));
@@ -323,7 +323,7 @@ const SIMULACIONES = {};
     svg.append(T(220, 137, "Motor DC", { fill: "#fff", "font-weight": 700 }));
     svg.append(s("line", { x1: 290, y1: 130, x2: 330, y2: 130, stroke: "#8A94A8", "stroke-width": 8 }));
     const helice = s("g", { class: "gira" });
-    [0, 90].forEach(a => helice.append(s("ellipse", { cx: 400, cy: 130, rx: 70, ry: 14, fill: "#5B4BDB", "fill-opacity": 0.85, transform: "rotate(" + a + " 400 130)" })));
+    [0, 90].forEach(a => helice.append(s("ellipse", { cx: 400, cy: 130, rx: 70, ry: 14, fill: "#3A4FDB", "fill-opacity": 0.85, transform: "rotate(" + a + " 400 130)" })));
     svg.append(helice);
     svg.append(s("circle", { cx: 400, cy: 130, r: 10, fill: "#fff", stroke: "#12203A", "stroke-width": 4 }));
 
@@ -395,7 +395,7 @@ const SIMULACIONES = {};
     const embolo = s("rect", { x: 250, y: 118, width: 150, height: 24, rx: 6, fill: "#8A94A8", stroke: "#12203A", "stroke-width": 3 });
     embolo.setAttribute("style", "transition:transform .25s ease");
     svg.append(embolo);
-    const compuerta = s("rect", { x: 470, y: 90, width: 14, height: 80, fill: "#5B4BDB" });
+    const compuerta = s("rect", { x: 470, y: 90, width: 14, height: 80, fill: "#3A4FDB" });
     svg.append(compuerta);
 
     function pintar() {
@@ -441,7 +441,7 @@ const SIMULACIONES = {};
       svg.replaceChildren();
       svg.append(s("path", { d: "M 230 20 H 370 L 330 100 H 270 Z", fill: "#E3F5F2", stroke: "#0B7F72", "stroke-width": 4 }));
       svg.append(T(300, 62, "Tolva", { "font-size": 14 }));
-      svg.append(s("rect", { x: 270, y: 100, width: 60, height: 30, fill: "#5B4BDB" }));
+      svg.append(s("rect", { x: 270, y: 100, width: 60, height: 30, fill: "#3A4FDB" }));
       svg.append(T(300, 120, est.mec.split(" ")[0], { fill: "#fff", "font-size": 12 }));
       if (est.corriendo) svg.append(s("line", { x1: 300, y1: 130, x2: 300, y2: 195, stroke: "#B77A00", "stroke-width": 6, "stroke-dasharray": "4 6" }));
       svg.append(s("rect", { x: 220, y: 195, width: 160, height: 55, rx: 10, fill: "#fff", stroke: "#12203A", "stroke-width": 5 }));
