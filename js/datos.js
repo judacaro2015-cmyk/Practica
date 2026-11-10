@@ -12,7 +12,7 @@
    ========================================================== */
 
 const PROYECTO = {
-  nombre: "LabOEA9°",
+  nombre: "TecnoQuest OEA",
   frase: "Aprende tecnología simulando, jugando y resolviendo retos.",
   colegio: "Colegio OEA IED",
   area: "Tecnología e Informática",
