@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guía docente</title>
+<meta name="description" content="Guía para docentes: finalidad de la plataforma, organización de las unidades y orientaciones de uso en el aula.">
+<meta name="theme-color" content="#001C7C">
+<link rel="icon" href="img/escudo-colegio.jpg">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+  .guia{max-width:900px;margin:0 auto;padding:32px 24px 64px}
+  .guia h1{font-size:clamp(30px,5vw,44px);color:var(--marino);margin-bottom:8px}
+  .guia h2{font-size:clamp(22px,3.4vw,30px);color:var(--marino);margin:44px 0 12px}
+  .guia h2::before{content:"";display:block;width:48px;height:7px;border-radius:999px;background:var(--ambar);margin-bottom:10px}
+  .guia h3{font-size:19px;margin:22px 0 6px}
+  .guia p{margin:0 0 12px;font-size:17px}
+  .guia ul,.guia ol{margin:0 0 14px;padding-left:22px}
+  .guia li{margin-bottom:6px;font-size:17px}
+  .guia .lead{font-size:20px;color:var(--suave);margin-bottom:20px}
+  .finalidad{background:var(--marino);color:#fff;border-radius:24px;padding:26px 28px;margin:22px 0;box-shadow:var(--sombra)}
+  .finalidad h2{color:#fff;margin:0 0 10px;font-size:24px}
+  .finalidad h2::before{display:none}
+  .finalidad p{color:#E3ECFF;margin:0}
+  .tabla-w{overflow-x:auto;margin:12px 0 20px;border-radius:16px;border:2px solid var(--borde);background:#fff}
+  .guia table{border-collapse:collapse;width:100%;min-width:560px;font-size:15px}
+  .guia th{background:var(--violeta-t);color:var(--violeta-o);text-align:left;padding:10px 12px}
+  .guia td{padding:10px 12px;border-top:1px solid var(--borde);vertical-align:top}
+  .tres{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:16px;margin:12px 0 20px}
+  .tres .caja{padding:20px;gap:8px}
+  .tres .caja h3{margin:0;font-size:19px}
+  .tres .caja ul{margin:0;padding-left:20px}
+  .tres .caja li{font-size:15px}
+  .aviso{background:var(--ambar-t);border:2px solid #F0CF86;border-radius:16px;padding:14px 18px;margin:14px 0;color:#4A3300}
+  .aviso p{margin:0;font-size:16px}
+  .guia .refs li{font-size:15px}
+  .acciones{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+  @media print{.cabecera,.acciones{display:none}.guia{padding:0}.finalidad{box-shadow:none;border:2px solid #000;background:#fff;color:#000}.finalidad h2,.finalidad p{color:#000}}
+</style>
+</head>
+<body>
+
+<header class="cabecera">
+  <div class="contenedor interno">
+    <a class="marca" href="index.html"><span class="escudos"><img class="escudo" src="img/escudo-colegio.jpg" alt="" width="46" height="46"><img class="escudo" src="img/escudo-universidad.png" alt="" width="46" height="46"></span><span class="marca-nombre" data-p="nombre">[NOMBRE DEL PROYECTO]</span></a>
+    <nav class="menu" aria-label="Principal"><a href="index.html">Volver al inicio</a></nav>
+  </div>
+</header>
+
+<main class="guia">
+  <div class="tags" style="margin-bottom:12px"><span class="tag tag-verde">Guía docente</span><span class="tag">Tecnología e Informática · Grado 9°</span></div>
+  <h1>Guía docente</h1>
+  <p class="lead">Qué es esta plataforma, para qué sirve y cómo llevarla al aula.</p>
+
+  <div class="finalidad">
+    <h2>Finalidad de la aplicación</h2>
+    <p>Esta plataforma busca que los estudiantes de grado noveno aprendan los contenidos de Tecnología e Informática construyendo, probando y jugando, y no solo leyendo. Reúne en un mismo lugar simulaciones, actividades didácticas y retos que permiten experimentar con circuitos, actuadores, control de tiempos, computación y lógica digital sin necesidad de materiales físicos, y que funcionan aun con equipos y conexión limitados.</p>
+  </div>
+
+  <h2>1. Por qué existe</h2>
+  <p>El proyecto responde a tres situaciones que se observan en el aula:</p>
+  <ul>
+    <li><strong>Metodologías poco motivadoras:</strong> los temas técnicos suelen presentarse de forma teórica y los estudiantes pierden el interés.</li>
+    <li><strong>Dificultad para sostener la concentración:</strong> las actividades largas y sin respuesta inmediata cansan rápido.</li>
+    <li><strong>Gustos de los estudiantes:</strong> les atraen los videojuegos y las series; la plataforma toma de allí las misiones, los niveles y las insignias.</li>
+  </ul>
+  <p>Además, parte de una limitación real: el colegio cuenta con internet lento y equipos de cómputo con poca capacidad. Por eso la plataforma es liviana, no usa librerías externas, no pide registro y, una vez abierta, puede volver a usarse sin conexión.</p>
+
+  <h2>2. Qué se espera que logren los estudiantes</h2>
+  <ul>
+    <li>Comprender, con ejemplos concretos, cómo se combinan mecánica, electrónica, programación y lógica en un sistema automático: un dispensador de comida para mascotas.</li>
+    <li>Experimentar con la teoría: cambiar valores, observar qué pasa y explicar por qué.</li>
+    <li>Practicar el vocabulario y los conceptos con actividades de respuesta inmediata.</li>
+    <li>Avanzar a su propio ritmo y ver su progreso (pasos completados, niveles e insignias).</li>
+  </ul>
+
+  <h2>3. Cómo está organizada cada unidad</h2>
+  <p>Todas las unidades siguen los mismos cuatro pasos, siempre en el mismo orden. Esa repetición ayuda a que el estudiante sepa qué sigue y no se pierda.</p>
+  <div class="tabla-w"><table>
+    <thead><tr><th>Paso</th><th>Qué hace el estudiante</th><th>Tu papel como docente</th><th>Tiempo</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1. Explora</strong></td><td>Lee la introducción, los contenidos y la idea central de la temática.</td><td>Activa saberes previos y aclara dudas de vocabulario.</td><td>~5 min</td></tr>
+      <tr><td><strong>2. Simula</strong></td><td>Prueba una simulación, cambia valores y observa el resultado.</td><td>Haz preguntas: «¿qué pasó cuando…?», «¿por qué creen que…?».</td><td>~10 min</td></tr>
+      <tr><td><strong>3. Practica</strong></td><td>Resuelve actividades de relacionar, ordenar, clasificar o quiz, con respuesta inmediata.</td><td>Observa los errores frecuentes y retómalos con el grupo.</td><td>~10 min</td></tr>
+      <tr><td><strong>4. Reta</strong></td><td>Responde una misión final; si la supera, gana una insignia.</td><td>Valida lo aprendido y celebra los logros.</td><td>~5 min</td></tr>
+    </tbody>
+  </table></div>
+  <p>En total, cada unidad toma aproximadamente 30 minutos; puedes dividirla en varias sesiones si lo necesitas.</p>
+
+  <h2>4. Las seis temáticas</h2>
+  <div class="tabla-w"><table>
+    <thead><tr><th>Temática</th><th>Propósito</th><th>Simulación</th><th>Insignia</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Dispensador automático (diseño mecánico)</strong></td><td>Comprender el diseño mecánico y el diseño asistido por computadora (CAD) para modelar las piezas del dispensador.</td><td>Diseño 3D en Tinkercad (herramienta externa)</td><td>Diseñador mecánico</td></tr>
+      <tr><td><strong>Dispensador automático (diseño electrónico)</strong></td><td>Reconocer los componentes electrónicos básicos y su función en el circuito de control.</td><td>Laboratorio de circuitos básicos: ley de Ohm con LED, sensor de luz (LDR) y relé</td><td>Experto en circuitos</td></tr>
+      <tr><td><strong>Actuadores y mecanismos</strong></td><td>Diferenciar los actuadores y los mecanismos de dispensación, y entender cómo se controla la porción.</td><td>Laboratorio de actuadores: servomotor, motor DC, paso a paso, solenoide y porción de comida</td><td>Maestro de mecanismos</td></tr>
+      <tr><td><strong>Dispensador automático (control de tiempos)</strong></td><td>Comprender cómo se controla el tiempo en un automatismo con Arduino: delay(), millis() y módulo RTC.</td><td>Laboratorio de control de tiempos: delay() frente a millis() y reloj RTC con alarma</td><td>Relojero digital</td></tr>
+      <tr><td><strong>Principios de computación</strong></td><td>Describir la función de la CPU, sus componentes y su evolución, y reconocer el lenguaje ensamblador y las hojas de cálculo.</td><td>Aún sin simulación propia: se complementa con una actividad en hoja de cálculo dirigida por el docente</td><td>Explorador de la CPU</td></tr>
+      <tr><td><strong>Compuertas lógicas</strong></td><td>Identificar las siete compuertas, predecir su salida y reproducir su lógica con funciones de Excel.</td><td>Simulador de compuertas con tablas de verdad</td><td>Maestro de compuertas</td></tr>
+    </tbody>
+  </table></div>
+  <div class="aviso"><p>Las temáticas no dependen unas de otras de forma estricta, pero el orden de la tabla va de lo físico (la pieza) a lo lógico (la decisión), y es una ruta recomendada para el curso.</p></div>
+
+  <h2>5. Cómo usarla en el aula</h2>
+  <div class="tres">
+    <div class="caja"><h3>Antes de la clase</h3><ul>
+      <li>Abre la plataforma y recorre tú mismo la unidad que vas a trabajar.</li>
+      <li>Comprueba qué equipos o dispositivos estarán disponibles. Según el Manual de Convivencia del colegio, los dispositivos se usan en clase cuando el docente los solicita.</li>
+      <li>Abre la página una vez con conexión en cada equipo: así queda guardada para usarla después sin internet.</li>
+    </ul></div>
+    <div class="caja"><h3>Durante la clase</h3><ul>
+      <li>Presenta la misión y el objetivo de la unidad en pocas palabras.</li>
+      <li>Deja que los estudiantes avancen solos o en parejas; recorre el salón haciendo preguntas.</li>
+      <li>Pide que expliquen en voz alta lo que observaron en la simulación.</li>
+    </ul></div>
+    <div class="caja"><h3>Al cerrar</h3><ul>
+      <li>Haz una puesta en común: ¿qué fue lo más difícil? ¿qué sorprendió?</li>
+      <li>Retoma los conceptos con más errores.</li>
+      <li>Invita a responder la encuesta de opinión (botones al final de la página de inicio).</li>
+    </ul></div>
+  </div>
+
+  <h2>6. Seguimiento y evaluación</h2>
+  <p>La plataforma ofrece evidencias formativas: el avance por pasos, el resultado de los retos y las insignias ganadas. Sirven para ver cómo va cada estudiante, pero <strong>no reemplazan</strong> tu criterio ni los procesos de evaluación del colegio. Puedes articularlas con el Sistema Institucional de Evaluación (SIE) pidiendo, por ejemplo, que el estudiante te muestre su progreso o explique con sus palabras una simulación.</p>
+  <div class="aviso"><p><strong>Importante:</strong> el progreso se guarda en el navegador de cada dispositivo. No hay un panel para el docente ni se envía a ningún servidor. Si el estudiante cambia de equipo o borra los datos del navegador, empieza de nuevo. Para verificar el avance, pídele que te muestre su pantalla.</p></div>
+
+  <h2>7. Privacidad</h2>
+  <p>La plataforma no pide nombre, correo ni registro, y no recoge datos personales: lo único que se guarda es el progreso, en el propio dispositivo. Las encuestas de opinión son formularios aparte; si decides pedir datos que identifiquen a los estudiantes, recuerda contar con la autorización correspondiente y cumplir la normatividad de protección de datos personales (Ley 1581 de 2012).</p>
+
+  <h2>8. Problemas frecuentes</h2>
+  <ul>
+    <li><strong>La página se ve desordenada o con imágenes rotas:</strong> recarga con Ctrl+F5. Si sigue igual, revisa que la carpeta de imágenes esté publicada.</li>
+    <li><strong>No abre sin internet:</strong> la primera vez debe cargarse con conexión; después queda disponible sin ella.</li>
+    <li><strong>Una simulación externa (Tinkercad) no abre:</strong> requiere internet y es opcional; el resto de simulaciones funcionan dentro de la página.</li>
+    <li><strong>El progreso desapareció:</strong> se guarda por navegador y dispositivo; si se borran los datos del navegador, se pierde.</li>
+  </ul>
+
+  <h2>9. Cómo ampliarla o adaptarla</h2>
+  <p>Todo el contenido (textos, preguntas, actividades, retos e insignias) está en un solo archivo, <code>js/datos.js</code>. Para agregar una temática o cambiar un texto no hace falta programar: se copia una unidad existente y se editan sus textos. El archivo <code>LEEME.md</code> explica cada campo. La misma estructura permite extender la plataforma a otros grados.</p>
+
+  <h2>10. Fuentes en las que se apoya el contenido</h2>
+  <ul class="refs">
+    <li>Banzi, M., &amp; Shiloh, M. (2014). <em>Make: Getting Started with Arduino</em> (3.ª ed.). Maker Media.</li>
+    <li>Bartlett, J. (2020). <em>Electronics for Beginners: A Practical Introduction to Schematics, Circuits, and Microcontrollers</em>. Apress.</li>
+    <li>McComb, G., &amp; Predko, M. (2006). <em>Robot Builder's Bonanza</em> (3.ª ed.). McGraw-Hill.</li>
+    <li>McCreary, D. <em>Beginning Electronics: Breadboards, Circuits, and Real-World Projects</em>. https://dmccreary.github.io/beginning-electronics/</li>
+    <li>McRoberts, M. (2010). <em>Beginning Arduino</em>. Apress.</li>
+    <li>Roberts, D. (2011). <em>Making Things Move: DIY Mechanisms for Inventors, Hobbyists, and Artists</em>. McGraw-Hill.</li>
+  </ul>
+
+  <div class="acciones">
+    <a class="btn btn-verde" href="index.html">Ir a la plataforma</a>
+    <button type="button" class="btn btn-borde-o" onclick="window.print()">Imprimir o guardar en PDF</button>
+  </div>
+</main>
+
+<script src="js/datos.js"></script>
+<script src="js/comun.js"></script>
+<script>aplicarProyecto();document.title="Guía docente · "+PROYECTO.nombre;</script>
+</body>
+</html>
