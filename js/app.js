@@ -49,7 +49,7 @@
         : [espacioLibre("Espacio para tu introducción general: aquí se explican las generalidades de las temáticas. Escríbela en js/datos.js, en PROYECTO.introGeneral.")]));
 
     document.getElementById("tem-lista").replaceChildren(...UNIDADES.map(u => {
-      const introU = parrafos(u.introduccion);
+      const introU = parrafos(u.resumen);
       const subs = u.subtemas || [];
       return h("article", { class: "tema-card" },
         h("div", { class: "tags" },
@@ -58,7 +58,7 @@
         h("h3", { text: u.titulo }),
         introU.length
           ? introU
-          : espacioLibre("Espacio para la introducción de esta temática (campo introduccion en js/datos.js)."),
+          : espacioLibre("Espacio para un resumen corto de esta temática (campo resumen en js/datos.js)."),
         subs.length
           ? h("details", { class: "subtemas" },
               h("summary", { text: "Contenidos (" + subs.length + ")" }),
