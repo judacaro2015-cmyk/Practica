@@ -3,7 +3,6 @@
    AQUÍ SE LLENA TODO EL CONTENIDO.
    No necesitas tocar el resto del código: copia una unidad,
    cámbiale los textos y la web la muestra sola.
-
    ESPACIOS LIBRES PARA REDACTAR (aparecen como recuadros punteados
    hasta que escribas algo):
      - PROYECTO.introGeneral : introducción general a las temáticas (inicio)
