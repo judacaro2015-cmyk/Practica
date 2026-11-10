@@ -7,17 +7,18 @@
    ESPACIOS LIBRES PARA REDACTAR (aparecen como recuadros punteados
    hasta que escribas algo):
      - PROYECTO.introGeneral : introducción general a las temáticas (inicio)
-     - unidad.introduccion   : introducción de cada temática
+     - unidad.resumen        : resumen corto de cada temática (tarjetas del inicio)
+     - unidad.introduccion   : introducción completa (paso Explora)
      - unidad.explora.texto  : contenido del paso Explora
    ========================================================== */
 
 const PROYECTO = {
-  nombre: "TecnoQuest OEA",
+  nombre: "[NOMBRE DEL PROYECTO]",
   frase: "Aprende tecnología simulando, jugando y resolviendo retos.",
   colegio: "Colegio OEA IED",
   area: "Tecnología e Informática",
-  autor: "Juan David Cáceres Romero",
-  universidad: "Universidad Pedagógica  Nacional",
+  autor: "[Tu nombre]",
+  universidad: "[Universidad]",
   anio: 2026,
   grados: [9],                    // grados que se muestran en la portada (ej.: [8, 9, 10])
   gradoPiloto: 9,                  // grado seleccionado al abrir la página
@@ -61,6 +62,7 @@ const PROYECTO = {
    Los grados de cada unidad (grados:[9]) son provisionales: ajústalos.
    ---------------------------------------------------------- */
 const UNIDADES = [
+
   /* ============ 1. DISPENSADOR: DISEÑO MECÁNICO ============ */
   {
     id: "dispensador-mecanico",
@@ -72,6 +74,7 @@ const UNIDADES = [
     "Antes de fabricar cualquier aparato hay que pensarlo: qué forma tendrá, de qué piezas se compone y cómo se moverán. Eso es el diseño mecánico. Detrás hay física y matemáticas que ya conoces: fuerzas, palancas, engranajes y el torque, que es la fuerza con que algo gira (se calcula multiplicando la fuerza por la distancia al punto de giro).",
     "Hoy no hace falta construir para probar una idea. Con el diseño asistido por computadora (CAD) dibujas las piezas en 3D, las armas en pantalla y detectas errores sin gastar material. Usaremos Tinkercad, una herramienta gratuita que funciona en el navegador. Verás qué puede hacer y qué no, y la aplicarás a las piezas del dispensador: la tolva donde se guarda la comida, el mecanismo que la deja caer, el plato y la carcasa que lo sostiene todo."
   ],
+    resumen: "Aprende cómo se diseña un aparato antes de construirlo y modela en 3D las piezas del dispensador con Tinkercad.",
     subtemas: [
       "Diseño mecánico: concepto, campo de aplicación y relación con física y matemáticas",
       "Diseño asistido por computadora (CAD) y prototipos virtuales",
@@ -85,7 +88,12 @@ const UNIDADES = [
     ],
     explora: {
       tiempo: "~5 min",
-      texto: [],
+      texto: [
+        "Diseñar es decidir antes de construir. Un diseño mecánico responde tres preguntas: qué debe hacer el aparato, qué piezas necesita y cómo se mueven entre sí. En el dispensador, la comida debe pasar de un depósito a un plato en cantidades controladas.",
+        "Las máquinas simples ayudan a lograrlo. Una palanca multiplica la fuerza y un engranaje cambia la velocidad o la dirección del giro. El torque (fuerza × distancia al punto de giro) indica cuánta fuerza de giro hay: un motor con poco torque no puede mover una compuerta grande y pesada.",
+        "El diseño asistido por computadora (CAD) permite dibujar cada pieza en 3D, armarlas en pantalla y corregir errores antes de gastar material. Tinkercad es gratuito y funciona en el navegador, ideal para empezar; pero no hace cálculos de resistencia, eso lo tiene que pensar quien diseña.",
+        "Las piezas clave del dispensador son la tolva (el depósito), el mecanismo que dosifica, el plato y la estructura que sostiene todo. Mientras avanzas, piensa cómo las unirías para que la comida no se atasque."
+      ],
       instrucciones: ["Lee la introducción y los contenidos de la temática.", "Cuando estés listo, pasa a Simula."]
     },
     simulacion: {
@@ -142,6 +150,7 @@ const UNIDADES = [
     "Si la parte mecánica es el cuerpo del dispensador, la electrónica es su sistema nervioso: lleva la energía y las señales a cada parte. Para entenderla necesitas tres ideas: el voltaje (el empuje de la electricidad), la corriente (cuánta electricidad circula) y la resistencia (lo que la frena). La ley de Ohm las relaciona, y por eso un LED necesita una resistencia en serie: sin ella pasaría demasiada corriente y se dañaría.",
     "También conocerás componentes muy útiles. La fotorresistencia (LDR) cambia su resistencia según la luz que recibe, así que sirve de sensor. El Arduino entrega muy poca corriente, por eso, para encender motores o cargas más grandes, se usan un transistor o un relé, que funcionan como interruptores controlados por una señal pequeña. Todo lo armarás y probarás en la simulación, sin riesgo de quemar nada."
   ],
+    resumen: "Entiende voltaje, corriente y resistencia, y usa LED, sensor de luz y relé para el circuito de control.",
     subtemas: [
       "Tinkercad para circuitos electrónicos: simulación en tiempo real y programación con Arduino (bloques y texto)",
       "Control automático con LDR (fotorresistencia): variación de resistencia según la luz",
@@ -155,7 +164,12 @@ const UNIDADES = [
     ],
     explora: {
       tiempo: "~5 min",
-      texto: [],
+      texto: [
+        "Un circuito es un camino cerrado por donde circula la electricidad. Tres magnitudes lo describen: el voltaje (V) es el empuje, la corriente (I) es cuánta electricidad circula y la resistencia (R) es lo que la frena. La ley de Ohm las une: I = V ÷ R.",
+        "Un LED se daña si pasa demasiada corriente, por eso va con una resistencia en serie que la limita. Con una batería de 5 V, un LED que consume unos 2 V y una resistencia de 220 Ω, circulan unos 14 mA: seguro para el LED.",
+        "La fotorresistencia (LDR) cambia con la luz: a oscuras tiene mucha resistencia y con luz, poca. Junto con otra resistencia forma un divisor de voltaje, que convierte la cantidad de luz en un voltaje que el Arduino puede leer.",
+        "Un pin del Arduino entrega muy poca corriente. Para activar un motor o una lámpara se usa un transistor o un relé: una señal pequeña cierra un interruptor que maneja la carga grande, sin que el Arduino la toque."
+      ],
       instrucciones: ["Lee la introducción y los contenidos de la temática.", "Cuando estés listo, pasa a Simula."]
     },
     simulacion: {
@@ -212,6 +226,7 @@ const UNIDADES = [
     "Un sistema automático tiene sensores (sus sentidos), un microcontrolador (su cerebro) y actuadores (sus músculos). Los actuadores son los que convierten una señal eléctrica en movimiento. Conocerás cuatro: el servomotor, que se mueve hasta un ángulo exacto; el motor DC, que gira continuamente y cambia de velocidad con el voltaje; el motor paso a paso, que avanza en pasos muy pequeños (uno de 200 pasos da la vuelta completa en pasos de 1,8°); y el solenoide, un electroimán que empuja o jala un émbolo en línea recta.",
     "El actuador solo no sirve la comida: necesita un mecanismo que transforme su movimiento. Estudiaremos la compuerta giratoria, la compuerta deslizante, el tornillo sin fin, la rueda dosificadora y la cremallera y piñón. Y descubrirás cómo se controla la porción: depende del tiempo que el actuador esté activo, del mecanismo elegido y de la velocidad del motor."
   ],
+    resumen: "Conoce los motores que producen el movimiento y los mecanismos que sirven la porción justa de comida.",
     subtemas: [
       "Actuadores: definición y tipos (servomotor, motor DC, motor paso a paso, solenoide)",
       "Mecanismos de dispensación: compuerta giratoria, compuerta deslizante, tornillo sin fin, rueda dosificadora, cremallera y piñón",
@@ -225,7 +240,13 @@ const UNIDADES = [
     ],
     explora: {
       tiempo: "~5 min",
-      texto: [],
+      texto: [
+        "Un actuador convierte energía eléctrica en movimiento. Es el «músculo» del sistema: el Arduino decide y el actuador ejecuta.",
+        "El servomotor llega a un ángulo exacto, normalmente entre 0° y 180°, según el pulso que recibe; sirve para posicionar, como abrir o cerrar una compuerta. El motor DC gira de forma continua: más voltaje, más velocidad, y si inviertes la polaridad cambia el sentido.",
+        "El motor paso a paso avanza por pasos pequeños (con 200 pasos de 1,8° se completa una vuelta), así que permite controlar posición y velocidad. El solenoide es un electroimán que mueve un émbolo en línea recta y regresa con un resorte.",
+        "Los mecanismos transforman ese movimiento. La compuerta giratoria o la deslizante abren y cierran el paso; el tornillo sin fin empuja la comida a lo largo de un tubo; la rueda dosificadora entrega porciones iguales por cada giro; y la cremallera y piñón convierte un giro en movimiento recto.",
+        "La porción depende de tres cosas: el tiempo que el actuador permanece activo, el mecanismo elegido y la velocidad del motor. Si duplicas el tiempo y lo demás no cambia, duplicas la porción."
+      ],
       instrucciones: ["Lee la introducción y los contenidos de la temática.", "Cuando estés listo, pasa a Simula."]
     },
     simulacion: {
@@ -282,6 +303,7 @@ const UNIDADES = [
     "Un automatismo es un sistema que realiza una tarea por sí solo siguiendo reglas, sin que una persona intervenga. Los hay eléctricos, electrónicos, hidráulicos y neumáticos. El nuestro será electrónico y lo controlará un Arduino, una placa de hardware libre con un microcontrolador, pines de entrada y salida, y la posibilidad de conectarle sensores y actuadores.",
     "Lo difícil de un dispensador es el tiempo: servir a la hora correcta y durante los segundos justos. Con delay() el Arduino se queda esperando y no hace nada más; con millis() va contando los milisegundos desde que arrancó y puede seguir atento al resto. Y si se va la luz, un reloj RTC como el DS3231, que tiene batería de respaldo, no pierde la hora y puede activar alarmas. Verás además las tres etapas de un programa: definir, configurar y ejecutar."
   ],
+    resumen: "Programa cuándo y cuánto sirve el dispensador: delay(), millis() y un reloj RTC que no pierde la hora.",
     subtemas: [
       "Diseño de automatismos: concepto y tipos (eléctricos, electrónicos, hidráulicos, neumáticos)",
       "Arduino: plataforma de hardware libre, microcontrolador, pines, sensores y actuadores",
@@ -296,7 +318,12 @@ const UNIDADES = [
     ],
     explora: {
       tiempo: "~5 min",
-      texto: [],
+      texto: [
+        "Un automatismo realiza una tarea solo, siguiendo reglas. El del dispensador es electrónico: un reloj o un sensor le informa, el Arduino decide y un actuador sirve la comida.",
+        "Todo programa de Arduino tiene tres etapas: definir (variables y pines), configurar (setup, que se ejecuta una vez) y ejecutar (loop, que se repite sin parar).",
+        "Para medir el tiempo hay dos caminos. delay(1000) detiene el programa un segundo: es fácil, pero mientras espera el Arduino no hace nada más. millis() entrega los milisegundos transcurridos desde que arrancó; si comparas el valor actual con el anterior sabes cuánto tiempo pasó, y el programa sigue atento a otras cosas, como un botón.",
+        "Pero millis() no sabe qué hora es y se reinicia si se apaga la placa. Por eso se usa un módulo RTC (DS3231): un reloj con batería de respaldo que conserva la hora aunque se vaya la luz, se comunica con el Arduino por el protocolo I2C y puede activar alarmas."
+      ],
       instrucciones: ["Lee la introducción y los contenidos de la temática.", "Cuando estés listo, pasa a Simula."]
     },
     simulacion: {
@@ -353,6 +380,7 @@ const UNIDADES = [
     "La CPU es el cerebro de un computador: la unidad central de procesamiento que ejecuta las instrucciones de los programas. Tu celular, tu consola y el Arduino del dispensador tienen algo parecido. Recorreremos su historia: de los computadores gigantes con tubos de vacío (como el ENIAC) a los transistores, los circuitos integrados y los microprocesadores de hoy, con varios núcleos, tarjetas gráficas (GPU) y aceleradores para inteligencia artificial.",
     "Por dentro, una CPU tiene una unidad de control que dirige, registros que guardan datos al instante, una ALU que hace las operaciones aritméticas y lógicas, y un reloj que marca el ritmo, como un latido. Verás cómo se le habla en lenguaje ensamblador, con instrucciones muy cercanas a lo que entiende la máquina y distintas según el tipo de procesador. Además usarás hojas de cálculo, con celdas, tipos de datos y fórmulas, para entender cómo se organizan y procesan los datos."
   ],
+    resumen: "Descubre cómo funciona la CPU, de dónde viene y cómo se le habla en lenguaje ensamblador.",
     subtemas: [
       "La CPU: definición y función como unidad central de procesamiento",
       "Evolución histórica: tubos de vacío (ENIAC, UNIVAC), transistores, circuitos integrados, microprocesadores, CPU de 16/32/64 bits y multinúcleo",
@@ -368,7 +396,13 @@ const UNIDADES = [
     ],
     explora: {
       tiempo: "~5 min",
-      texto: [],
+      texto: [
+        "La CPU (unidad central de procesamiento) ejecuta las instrucciones de un programa, una tras otra, a una velocidad enorme: un procesador actual realiza miles de millones de ciclos por segundo.",
+        "Sus partes principales son la unidad de control, que dirige qué instrucción sigue; los registros, memorias diminutas y muy rápidas; la ALU, que hace las operaciones aritméticas y lógicas; el reloj, que marca el ritmo; y la unidad de gestión de memoria, que organiza el acceso a ella.",
+        "Los primeros computadores (ENIAC, UNIVAC) usaban tubos de vacío y ocupaban salas enteras. Los transistores los hicieron más pequeños y confiables, los circuitos integrados metieron muchos transistores en un chip y los microprocesadores pusieron toda la CPU en uno solo. Hoy hay procesadores de 64 bits, con varios núcleos, junto a GPU y aceleradores para inteligencia artificial.",
+        "Una CPU solo entiende lenguaje de máquina, hecho de ceros y unos. El lenguaje ensamblador usa nombres cortos como ADD o MOV para esas instrucciones: es de bajo nivel y cada tipo de procesador tiene el suyo.",
+        "Las hojas de cálculo organizan datos en celdas (números, texto, fechas) y usan fórmulas para procesarlos. Sirven en finanzas y análisis de datos, y también para simular cosas, como una CPU sencilla."
+      ],
       instrucciones: ["Lee la introducción y los contenidos de la temática.", "Cuando estés listo, pasa a Simula."]
     },
     // Sin simulación por ahora: el paso muestra un espacio reservado.
@@ -416,6 +450,7 @@ const UNIDADES = [
     "Los computadores y el Arduino toman decisiones con electricidad. Para eso usan compuertas lógicas: circuitos que reciben entradas de 1 (encendido, voltaje alto) o 0 (apagado, voltaje bajo) y entregan una salida que depende solo de esas entradas. A ese tipo de circuitos se les llama lógica combinacional, y su matemática es el álgebra booleana.",
     "Conocerás siete compuertas: AND, OR, NOT, NAND, NOR, XOR y XNOR. Cada una se describe con su símbolo y su tabla de verdad, que muestra qué salida da cada combinación de entradas. Un ejemplo de tu dispensador: sirve la comida SOLO SI es la hora Y hay comida en la tolva, y eso es una compuerta AND. Verás también que NAND y NOR son universales: con una sola de ellas se puede construir cualquier otra. Al final reproducirás esta lógica en Excel con las funciones Y, O y NO."
   ],
+    resumen: "Aprende a decidir con 0 y 1: las siete compuertas lógicas y sus tablas de verdad.",
     subtemas: [
       "Lógica combinacional: definición y ejemplos",
       "Compuertas lógicas: concepto, estados binarios (0/1), álgebra booleana y aplicaciones",
