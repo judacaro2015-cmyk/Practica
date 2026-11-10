@@ -12,12 +12,12 @@
    ========================================================== */
 
 const PROYECTO = {
-  nombre: "[NOMBRE DEL PROYECTO]",
+  nombre: "LabOEA9°",
   frase: "Aprende tecnología simulando, jugando y resolviendo retos.",
   colegio: "Colegio OEA IED",
   area: "Tecnología e Informática",
-  autor: "[Tu nombre]",
-  universidad: "[Universidad]",
+  autor: "Juan David Cáceres Romero",
+  universidad: "Universidad Pedagógica  Nacional",
   anio: 2026,
   grados: [9],                    // grados que se muestran en la portada (ej.: [8, 9, 10])
   gradoPiloto: 9,                  // grado seleccionado al abrir la página
