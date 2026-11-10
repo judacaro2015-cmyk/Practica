@@ -3,6 +3,7 @@
    AQUÍ SE LLENA TODO EL CONTENIDO.
    No necesitas tocar el resto del código: copia una unidad,
    cámbiale los textos y la web la muestra sola.
+
    ESPACIOS LIBRES PARA REDACTAR (aparecen como recuadros punteados
    hasta que escribas algo):
      - PROYECTO.introGeneral : introducción general a las temáticas (inicio)
@@ -18,7 +19,7 @@ const PROYECTO = {
   area: "Tecnología e Informática",
   autor: "Juan David Cáceres Romero",
   universidad: "Universidad Pedagógica Nacional",
-  anio: 2026,
+  anio: 2026-2,
   grados: [9],                    // grados que se muestran en la portada (ej.: [8, 9, 10])
   gradoPiloto: 9,                  // grado seleccionado al abrir la página
   historiaRetos: "Cada unidad termina con una misión. Si la superas, ganas una insignia y subes de nivel.",
@@ -36,7 +37,7 @@ const PROYECTO = {
   // (Los enlaces de las encuestas están escritos directamente en index.html.)
   encuestaEstudiantes: "https://forms.gle/7653KoqGijDFwjg96",
   encuestaDocentes: "https://forms.gle/LhzL1hiG9Kx3n8Hq7",
-  guiaDocente: "#docentes"
+  guiaDocente: "guia-docente.html"
 };
 
 /* ----------------------------------------------------------
