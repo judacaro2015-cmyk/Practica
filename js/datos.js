@@ -61,7 +61,6 @@ const PROYECTO = {
    Los grados de cada unidad (grados:[9]) son provisionales: ajústalos.
    ---------------------------------------------------------- */
 const UNIDADES = [
-
   /* ============ 1. DISPENSADOR: DISEÑO MECÁNICO ============ */
   {
     id: "dispensador-mecanico",
