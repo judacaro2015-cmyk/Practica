@@ -13,6 +13,7 @@ Mientras un campo esté vacío (`""` o `[]`), la página muestra un recuadro pun
 | Resumen corto de cada temática | `resumen` de la unidad | Tarjetas de la portada |
 | Introducción de cada temática | `introduccion` de la unidad | Paso Explora (panel "Introducción") |
 | Contenido del paso Explora | `explora.texto` | Paso Explora |
+| Competencias de cada guía | `competencias` de la unidad (lista de textos) | Botón desplegable "Objetivos y competencias" de la unidad |
 
 Cada uno acepta un texto (`"..."`) o varios párrafos (`["párrafo 1", "párrafo 2"]`).
 
