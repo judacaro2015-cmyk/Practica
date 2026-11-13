@@ -207,6 +207,7 @@ p{margin:0}
 .panel-cabeza .tiempo{font-size:13px;font-weight:600}
 .texto-largo{display:flex;flex-direction:column;gap:12px}
 .texto-largo p{font-size:17px;color:var(--tinta)}
+.texto-largo strong{color:var(--marino);font-weight:800;background:linear-gradient(transparent 60%,#FFE9A8 60%);padding:0 2px;border-radius:2px}
 .observar{background:var(--ambar-t);border:1px solid #F0D08A;border-radius:var(--radio);padding:20px}
 .observar h3{color:#6B4600;font-size:16px;margin-bottom:6px}
 .observar p{font-size:15px;color:#4A3A1A}
