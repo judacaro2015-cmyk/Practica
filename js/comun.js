@@ -30,12 +30,27 @@ function mezclar(lista) {
   return a;
 }
 
-/* Convierte un texto (o una lista de textos) en párrafos. Si está vacío devuelve []. */
-function parrafos(x) {
+/* Convierte un texto (o una lista de textos) en párrafos. Si está vacío devuelve [].
+   Si se pasa una lista de términos (el vocabulario), los resalta en negrilla. */
+function parrafos(x, terminos) {
   const lista = Array.isArray(x) ? x : (x ? [x] : []);
+  const ter = (terminos || []).slice().sort((a, b) => b.length - a.length)
+    .map(t => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+  const re = ter.length ? new RegExp("(^|[^\\p{L}\\p{N}])((?:" + ter.join("|") + ")(?:e?s)?)(?![\\p{L}\\p{N}])", "giu") : null;
   return lista
     .filter(t => t && String(t).trim())
-    .map(t => h("p", { text: t }));
+    .map(t => {
+      if (!re) return h("p", { text: t });
+      const hijos = [];
+      let i = 0, m;
+      re.lastIndex = 0;
+      while ((m = re.exec(t))) {
+        hijos.push(t.slice(i, m.index + m[1].length), h("strong", { text: m[2] }));
+        i = m.index + m[0].length;
+      }
+      hijos.push(t.slice(i));
+      return h("p", {}, hijos);
+    });
 }
 
 /* Recuadro punteado que marca un espacio que el docente aún debe redactar. */
