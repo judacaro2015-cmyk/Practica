@@ -100,8 +100,9 @@
   /* ---- Contenido de cada paso ---- */
   function pasoExplora() {
     const e = u.explora || {};
-    const intro = parrafos(u.introduccion);
-    const texto = parrafos(e.texto);
+    const terminos = (u.vocabulario || []).map(v => v.t);
+    const intro = parrafos(u.introduccion, terminos);
+    const texto = parrafos(e.texto, terminos);
     const subs = u.subtemas || [];
     const paneles = [];
 
