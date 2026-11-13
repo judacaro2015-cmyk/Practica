@@ -53,9 +53,15 @@
   function pintarGuia() {
     const paso = u[PASOS[actual].id] || {};
     const cajas = [];
-    if (u.objetivo) {
-      cajas.push(h("div", { class: "panel" }, h("h3", { text: "Objetivo de aprendizaje" }), h("p", { text: u.objetivo })));
-    }
+    const comp = u.competencias || [];
+    cajas.push(h("details", { class: "panel subtemas" },
+      h("summary", { text: "Objetivos y competencias" }),
+      h("h3", { text: "Objetivo de aprendizaje", style: "margin-top:10px" }),
+      h("p", { text: u.objetivo || "" }),
+      h("h3", { text: "Competencias que se trabajan", style: "margin-top:12px" }),
+      comp.length
+        ? h("ul", {}, comp.map(c => h("li", { text: c })))
+        : espacioLibre("Espacio para las competencias de esta guía (campo competencias en js/datos.js).")));
     if (paso.instrucciones && paso.instrucciones.length) {
       cajas.push(h("div", { class: "panel" }, h("h3", { text: "Instrucciones" }), lista(paso.instrucciones)));
     }
