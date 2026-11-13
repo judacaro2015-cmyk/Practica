@@ -7,18 +7,19 @@
    ESPACIOS LIBRES PARA REDACTAR (aparecen como recuadros punteados
    hasta que escribas algo):
      - PROYECTO.introGeneral : introducción general a las temáticas (inicio)
+     - unidad.competencias   : competencias de la guía (botón "Objetivos y competencias")
      - unidad.resumen        : resumen corto de cada temática (tarjetas del inicio)
      - unidad.introduccion   : introducción completa (paso Explora)
      - unidad.explora.texto  : contenido del paso Explora
    ========================================================== */
 
 const PROYECTO = {
-  nombre: "TecnoQuest OEA",
+  nombre: "[NOMBRE DEL PROYECTO]",
   frase: "Aprende tecnología simulando, jugando y resolviendo retos.",
   colegio: "Colegio OEA IED",
   area: "Tecnología e Informática",
-  autor: "Juan David Cáceres Romero",
-  universidad: "Universidad Pedagógica Nacional",
+  autor: "[Tu nombre]",
+  universidad: "[Universidad]",
   anio: 2026,
   grados: [9],                    // grados que se muestran en la portada (ej.: [8, 9, 10])
   gradoPiloto: 9,                  // grado seleccionado al abrir la página
@@ -70,6 +71,7 @@ const UNIDADES = [
     tema: "Dispensador automático",
     titulo: "Dispensador automático (diseño mecánico)",
     objetivo: "Comprender el diseño mecánico y el diseño asistido por computadora (CAD) para modelar los elementos de un dispensador automático de alimento para mascotas.",
+    competencias: [],   // competencias que se trabajan en esta guía (una por línea)
     introduccion: [
     "Antes de fabricar cualquier aparato hay que pensarlo: qué forma tendrá, de qué piezas se compone y cómo se moverán. Eso es el diseño mecánico. Detrás hay física y matemáticas que ya conoces: fuerzas, palancas, engranajes y el torque, que es la fuerza con que algo gira (se calcula multiplicando la fuerza por la distancia al punto de giro).",
     "Hoy no hace falta construir para probar una idea. Con el diseño asistido por computadora (CAD) dibujas las piezas en 3D, las armas en pantalla y detectas errores sin gastar material. Usaremos Tinkercad, una herramienta gratuita que funciona en el navegador. Verás qué puede hacer y qué no, y la aplicarás a las piezas del dispensador: la tolva donde se guarda la comida, el mecanismo que la deja caer, el plato y la carcasa que lo sostiene todo."
@@ -146,6 +148,7 @@ const UNIDADES = [
     tema: "Dispensador automático",
     titulo: "Dispensador automático (diseño electrónico)",
     objetivo: "Reconocer los componentes electrónicos básicos de un dispensador y simular su circuito de control con Arduino en Tinkercad.",
+    competencias: [],   // competencias que se trabajan en esta guía (una por línea)
     introduccion: [
     "Si la parte mecánica es el cuerpo del dispensador, la electrónica es su sistema nervioso: lleva la energía y las señales a cada parte. Para entenderla necesitas tres ideas: el voltaje (el empuje de la electricidad), la corriente (cuánta electricidad circula) y la resistencia (lo que la frena). La ley de Ohm las relaciona, y por eso un LED necesita una resistencia en serie: sin ella pasaría demasiada corriente y se dañaría.",
     "También conocerás componentes muy útiles. La fotorresistencia (LDR) cambia su resistencia según la luz que recibe, así que sirve de sensor. El Arduino entrega muy poca corriente, por eso, para encender motores o cargas más grandes, se usan un transistor o un relé, que funcionan como interruptores controlados por una señal pequeña. Todo lo armarás y probarás en la simulación, sin riesgo de quemar nada."
@@ -222,6 +225,7 @@ const UNIDADES = [
     tema: "Dispensador automático",
     titulo: "Actuadores y mecanismos",
     objetivo: "Diferenciar los tipos de actuadores y los mecanismos de dispensación, y entender cómo se controla la porción de comida.",
+    competencias: [],   // competencias que se trabajan en esta guía (una por línea)
     introduccion: [
     "Un sistema automático tiene sensores (sus sentidos), un microcontrolador (su cerebro) y actuadores (sus músculos). Los actuadores son los que convierten una señal eléctrica en movimiento. Conocerás cuatro: el servomotor, que se mueve hasta un ángulo exacto; el motor DC, que gira continuamente y cambia de velocidad con el voltaje; el motor paso a paso, que avanza en pasos muy pequeños (uno de 200 pasos da la vuelta completa en pasos de 1,8°); y el solenoide, un electroimán que empuja o jala un émbolo en línea recta.",
     "El actuador solo no sirve la comida: necesita un mecanismo que transforme su movimiento. Estudiaremos la compuerta giratoria, la compuerta deslizante, el tornillo sin fin, la rueda dosificadora y la cremallera y piñón. Y descubrirás cómo se controla la porción: depende del tiempo que el actuador esté activo, del mecanismo elegido y de la velocidad del motor."
@@ -299,6 +303,7 @@ const UNIDADES = [
     tema: "Dispensador automático",
     titulo: "Dispensador automático (control de tiempos)",
     objetivo: "Programar el control de tiempos de un automatismo con Arduino usando millis(), delay() y un módulo RTC.",
+    competencias: [],   // competencias que se trabajan en esta guía (una por línea)
     introduccion: [
     "Un automatismo es un sistema que realiza una tarea por sí solo siguiendo reglas, sin que una persona intervenga. Los hay eléctricos, electrónicos, hidráulicos y neumáticos. El nuestro será electrónico y lo controlará un Arduino, una placa de hardware libre con un microcontrolador, pines de entrada y salida, y la posibilidad de conectarle sensores y actuadores.",
     "Lo difícil de un dispensador es el tiempo: servir a la hora correcta y durante los segundos justos. Con delay() el Arduino se queda esperando y no hace nada más; con millis() va contando los milisegundos desde que arrancó y puede seguir atento al resto. Y si se va la luz, un reloj RTC como el DS3231, que tiene batería de respaldo, no pierde la hora y puede activar alarmas. Verás además las tres etapas de un programa: definir, configurar y ejecutar."
@@ -376,6 +381,7 @@ const UNIDADES = [
     tema: "Computación",
     titulo: "Principios de computación",
     objetivo: "Describir la función de la CPU, sus componentes y su evolución, y reconocer el lenguaje ensamblador y las hojas de cálculo como herramientas de la computación.",
+    competencias: [],   // competencias que se trabajan en esta guía (una por línea)
     introduccion: [
     "La CPU es el cerebro de un computador: la unidad central de procesamiento que ejecuta las instrucciones de los programas. Tu celular, tu consola y el Arduino del dispensador tienen algo parecido. Recorreremos su historia: de los computadores gigantes con tubos de vacío (como el ENIAC) a los transistores, los circuitos integrados y los microprocesadores de hoy, con varios núcleos, tarjetas gráficas (GPU) y aceleradores para inteligencia artificial.",
     "Por dentro, una CPU tiene una unidad de control que dirige, registros que guardan datos al instante, una ALU que hace las operaciones aritméticas y lógicas, y un reloj que marca el ritmo, como un latido. Verás cómo se le habla en lenguaje ensamblador, con instrucciones muy cercanas a lo que entiende la máquina y distintas según el tipo de procesador. Además usarás hojas de cálculo, con celdas, tipos de datos y fórmulas, para entender cómo se organizan y procesan los datos."
@@ -446,6 +452,7 @@ const UNIDADES = [
     tema: "Electrónica digital",
     titulo: "Compuertas lógicas",
     objetivo: "Identificar las siete compuertas lógicas, predecir su salida a partir de las entradas y reproducir su lógica con funciones de Excel.",
+    competencias: [],   // competencias que se trabajan en esta guía (una por línea)
     introduccion: [
     "Los computadores y el Arduino toman decisiones con electricidad. Para eso usan compuertas lógicas: circuitos que reciben entradas de 1 (encendido, voltaje alto) o 0 (apagado, voltaje bajo) y entregan una salida que depende solo de esas entradas. A ese tipo de circuitos se les llama lógica combinacional, y su matemática es el álgebra booleana.",
     "Conocerás siete compuertas: AND, OR, NOT, NAND, NOR, XOR y XNOR. Cada una se describe con su símbolo y su tabla de verdad, que muestra qué salida da cada combinación de entradas. Un ejemplo de tu dispensador: sirve la comida SOLO SI es la hora Y hay comida en la tolva, y eso es una compuerta AND. Verás también que NAND y NOR son universales: con una sola de ellas se puede construir cualquier otra. Al final reproducirás esta lógica en Excel con las funciones Y, O y NO."
