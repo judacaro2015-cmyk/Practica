@@ -60,7 +60,11 @@
       h("p", { text: u.objetivo || "" }),
       h("h3", { text: "Competencias que se trabajan", style: "margin-top:12px" }),
       comp.length
-        ? h("ul", {}, comp.map(c => h("li", { text: c })))
+        ? h("div", { class: "comp-lista" }, comp.map((c, i) => typeof c === "string"
+            ? h("div", { class: "comp" }, h("p", { text: c }))
+            : h("div", { class: "comp" },
+                h("small", { text: "Competencia " + (i + 1) }), h("p", { text: c.competencia }),
+                h("small", { text: "Evidencia de aprendizaje" }), h("p", { text: c.evidencia }))))
         : espacioLibre("Espacio para las competencias de esta guía (campo competencias en js/datos.js).")));
     if (paso.instrucciones && paso.instrucciones.length) {
       cajas.push(h("div", { class: "panel" }, h("h3", { text: "Instrucciones" }), lista(paso.instrucciones)));
