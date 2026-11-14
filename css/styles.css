@@ -299,3 +299,9 @@ p{margin:0}
   .u-lado{flex:1 1 100%}
   .u-guia{flex:1 1 100%}
 }
+
+.comp-lista{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.comp{border:2px solid #C9D6F2;border-radius:12px;padding:10px 12px;background:var(--fondo)}
+.comp small{display:block;font-weight:800;color:var(--verde);text-transform:uppercase;font-size:11px;letter-spacing:.04em;margin-top:6px}
+.comp small:first-child{margin-top:0}
+.comp p{font-size:14px;margin:2px 0 0;color:var(--tinta)}
