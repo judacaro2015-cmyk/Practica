@@ -7,10 +7,10 @@
   const q = new URLSearchParams(location.search);
   const u = UNIDADES.find(x => x.id === q.get("u")) || UNIDADES[0];
   const PASOS = [
-    { id: "explora", nombre: "Explora", c: "p1", color: "var(--verde)" },
-    { id: "simula", nombre: "Simula", c: "p2", color: "var(--violeta)" },
-    { id: "practica", nombre: "Practica", c: "p3", color: "var(--ambar-o)" },
-    { id: "reta", nombre: "Reta", c: "p4", color: "var(--coral)" }
+    { id: "explora", nombre: "Descubre", c: "p1", color: "var(--verde)" },
+    { id: "simula", nombre: "Modela", c: "p2", color: "var(--violeta)" },
+    { id: "practica", nombre: "Ejercita", c: "p3", color: "var(--ambar-o)" },
+    { id: "reta", nombre: "Desafío", c: "p4", color: "var(--coral)" }
   ];
 
   let actual = PASOS.findIndex(p => p.id === q.get("paso"));
@@ -124,16 +124,16 @@
 
     paneles.push(h("div", { class: "panel" },
       h("div", { class: "panel-cabeza" },
-        h("h2", { text: "Explora" }),
+        h("h2", { text: "Descubre" }),
         h("span", { class: "tiempo", style: "color:var(--verde)", text: e.tiempo || "" })),
       texto.length
         ? h("div", { class: "texto-largo" }, texto,
             e.imagen ? h("img", { src: e.imagen.src, alt: e.imagen.alt || "", loading: "lazy" }) : null)
-        : espacioLibre("Espacio para el contenido de Explora: la idea central de la temática en pocas líneas (campo explora.texto en js/datos.js)."),
+        : espacioLibre("Espacio para el contenido de Descubre: la idea central de la temática en pocas líneas (campo explora.texto en js/datos.js)."),
       h("button", {
         type: "button", class: "btn btn-verde", style: "align-self:flex-start",
         onclick: () => { Progreso.marcar(u.id, "explora"); ir(1); }
-      }, "Entendido, ir a Simula")));
+      }, "Entendido, ir a Modela")));
     return paneles;
   }
 
@@ -142,7 +142,7 @@
     if (!sm) {
       return [panelVacio(PASOS[1],
         "Espacio reservado para la simulación de esta temática. Cuando la agregues en js/datos.js (campo simulacion), aparecerá aquí.",
-        "Marcar paso como visto", "Paso marcado. Puedes continuar con Practica.")];
+        "Marcar paso como visto", "Paso marcado. Puedes continuar con Ejercita.")];
     }
 
     const area = h("div", { class: "sim-area" });
@@ -154,7 +154,7 @@
         veces++;
         if (veces === 3 && !Progreso.hecho(u.id, "simula")) {
           Progreso.marcar(u.id, "simula");
-          aviso.textContent = "¡Paso completado! Ya puedes pasar a Practica.";
+          aviso.textContent = "¡Paso completado! Ya puedes pasar a Ejercita.";
           pintarPasos();
         }
       }
@@ -174,17 +174,17 @@
           class: "btn btn-violeta", href: sm.externa.url, target: "_blank", rel: "noopener noreferrer"
         }, (sm.externa.texto || "Abrir simulación") + " ↗"),
         h("p", { class: "sim-nota", text: "Se abre en una pestaña nueva. Cuando termines, vuelve aquí y marca el paso." }),
-        botonMarcar("simula", "Ya la usé: marcar paso como completado", aviso, "¡Paso completado! Ya puedes pasar a Practica."));
+        botonMarcar("simula", "Ya la usé: marcar paso como completado", aviso, "¡Paso completado! Ya puedes pasar a Ejercita."));
     } else {
       area.classList.add("sim-externa");
       area.append(espacioLibre("Espacio reservado para la simulación de esta temática."),
-        botonMarcar("simula", "Marcar paso como visto", aviso, "Paso marcado. Puedes continuar con Practica."));
+        botonMarcar("simula", "Marcar paso como visto", aviso, "Paso marcado. Puedes continuar con Ejercita."));
     }
 
     return [
       h("div", { class: "panel" },
         h("div", { class: "panel-cabeza" },
-          h("h2", { text: "Simula · " + (sm.nombre || "") }),
+          h("h2", { text: "Modela · " + (sm.nombre || "") }),
           h("span", { class: "tiempo", style: "color:var(--violeta)", text: sm.tiempo || "" })),
         area, aviso),
       sm.observar ? h("div", { class: "observar" }, h("h3", { text: "Qué observar" }), h("p", { text: sm.observar })) : null
@@ -197,7 +197,7 @@
     if (!acts.length) {
       return [panelVacio(PASOS[2],
         "Espacio reservado para las actividades de esta temática (campo practica.actividades en js/datos.js).",
-        "Marcar paso como visto", "Paso marcado. Sigue con el Reta.")];
+        "Marcar paso como visto", "Paso marcado. Sigue con el Desafío.")];
     }
 
     const aviso = h("p", { class: "fb", "aria-live": "polite" });
@@ -210,7 +210,7 @@
         hechas++;
         if (hechas === acts.length) {
           Progreso.marcar(u.id, "practica");
-          aviso.textContent = "¡Practica completada! Sigue con el Reta.";
+          aviso.textContent = "¡Ejercicio completado! Sigue con el Desafío.";
           pintarPasos();
         }
       };
@@ -221,7 +221,7 @@
     });
     return [
       h("div", { class: "panel-cabeza", style: "padding:0 4px" },
-        h("h2", { text: "Practica" }),
+        h("h2", { text: "Ejercita" }),
         h("span", { class: "tiempo", style: "color:var(--ambar-o)", text: p.tiempo || "" })),
       ...paneles, aviso
     ];
@@ -231,7 +231,7 @@
     const r = u.reta || {};
     if (!r.preguntas || !r.preguntas.length) {
       return [panelVacio(PASOS[3],
-        "Espacio reservado para el reto de esta temática (campo reta en js/datos.js).",
+        "Espacio reservado para el desafío de esta temática (campo reta en js/datos.js).",
         "Marcar paso como visto", "Paso marcado.")];
     }
 
@@ -240,14 +240,14 @@
       if (aprobo) {
         Progreso.marcar(u.id, "reta");
         Progreso.otorgar(u.id);
-        aviso.textContent = r.insignia ? "¡Ganaste la insignia: " + r.insignia + "!" : "¡Reto superado!";
+        aviso.textContent = r.insignia ? "¡Ganaste la insignia: " + r.insignia + "!" : "¡Desafío superado!";
         pintarPasos();
       }
     });
     return [
       h("div", { class: "panel" },
         h("div", { class: "panel-cabeza" },
-          h("h2", { text: r.titulo || "Reta" }),
+          h("h2", { text: r.titulo || "Desafío" }),
           h("span", { class: "tiempo", style: "color:var(--coral)", text: r.tiempo || "" })),
         r.historia ? h("p", { text: r.historia }) : null,
         juego, aviso)
