@@ -14,13 +14,13 @@
    ========================================================== */
 
 const PROYECTO = {
-  nombre: "[NOMBRE DEL PROYECTO]",
+  nombre: "TecnoQuest OEA",
   frase: "Aprende tecnología modelando, jugando y superando desafíos.",
   colegio: "Colegio OEA IED",
   area: "Tecnología e Informática",
-  autor: "[Tu nombre]",
-  universidad: "[Universidad]",
-  anio: 2026,
+  autor: "Juan David Cáceres Romero 🐨",
+  universidad: "Universidad Pedagógica Nacional",
+  anio: 2026-2,
   grados: [9],                    // grados que se muestran en la portada (ej.: [8, 9, 10])
   gradoPiloto: 9,                  // grado seleccionado al abrir la página
   historiaRetos: "Cada unidad termina con una misión. Si la superas, ganas una insignia y subes de nivel.",
