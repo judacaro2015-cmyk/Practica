@@ -9,13 +9,13 @@
      - PROYECTO.introGeneral : introducción general a las temáticas (inicio)
      - unidad.competencias   : competencias de la guía (botón "Objetivos y competencias")
      - unidad.resumen        : resumen corto de cada temática (tarjetas del inicio)
-     - unidad.introduccion   : introducción completa (paso Explora)
-     - unidad.explora.texto  : contenido del paso Explora
+     - unidad.introduccion   : introducción completa (paso Descubre)
+     - unidad.explora.texto  : contenido del paso Descubre
    ========================================================== */
 
 const PROYECTO = {
   nombre: "[NOMBRE DEL PROYECTO]",
-  frase: "Aprende tecnología simulando, jugando y resolviendo retos.",
+  frase: "Aprende tecnología modelando, jugando y superando desafíos.",
   colegio: "Colegio OEA IED",
   area: "Tecnología e Informática",
   autor: "[Tu nombre]",
@@ -31,7 +31,7 @@ const PROYECTO = {
   tituloTematicas: "Temáticas del proyecto",
   introGeneral: [
     "En este proyecto vas a recorrer, paso a paso, cómo se diseña un dispensador automático de comida para mascotas: un aparato que sirve la porción justa, a la hora correcta, sin que nadie tenga que estar pendiente. Para lograrlo se juntan varias ideas de tecnología que seguramente has visto por separado: piezas que se mueven, circuitos, motores, relojes y la lógica que decide cuándo actuar.",
-    "Verás seis temáticas: el diseño mecánico, el diseño electrónico, los actuadores y mecanismos, el control de tiempos, los principios de computación y las compuertas lógicas. En cada una sigues los mismos cuatro pasos: Explora, Simula, Practica y Reta. No necesitas materiales ni herramientas: todo lo pruebas aquí, en simulaciones, y cada reto superado te da una insignia."
+    "Verás seis temáticas: el diseño mecánico, el diseño electrónico, los actuadores y mecanismos, el control de tiempos, los principios de computación y las compuertas lógicas. En cada una sigues los mismos cuatro pasos: Descubre, Modela, Ejercita y Desafío. No necesitas materiales ni herramientas: todo lo pruebas aquí, en simulaciones, y cada desafío superado te da una insignia."
   ],
 
   // Enlaces: pega aquí las direcciones de tus formularios (Google Forms, etc.)
@@ -114,7 +114,7 @@ const UNIDADES = [
         "El diseño asistido por computadora (CAD) permite dibujar cada pieza en 3D, armarlas en pantalla y corregir errores antes de gastar material. Tinkercad es gratuito y funciona en el navegador, ideal para empezar; pero no hace cálculos de resistencia, eso lo tiene que pensar quien diseña.",
         "Las piezas clave del dispensador son la tolva (el depósito), el mecanismo que dosifica, el plato y la estructura que sostiene todo. Mientras avanzas, piensa cómo las unirías para que la comida no se atasque."
       ],
-      instrucciones: ["Lee la introducción y los contenidos de la temática.", "Cuando estés listo, pasa a Simula."]
+      instrucciones: ["Lee la introducción y los contenidos de la temática.", "Cuando estés listo, pasa a Modela."]
     },
     simulacion: {
       id: "externa",
@@ -145,7 +145,7 @@ const UNIDADES = [
     },
     reta: {
       tiempo: "~5 min",
-      titulo: "Reta: diseña sin desperdiciar material",
+      titulo: "Desafío: diseña sin desperdiciar material",
       historia: "Tu equipo debe entregar el diseño de un dispensador para mascotas. Antes de fabricarlo, comprueba que dominas lo básico.",
       instrucciones: ["Responde las 3 preguntas.", "Necesitas al menos 2 aciertos para ganar la insignia."],
       pista: "Recuerda para qué sirve un prototipo virtual.",
@@ -191,7 +191,7 @@ const UNIDADES = [
         "La fotorresistencia (LDR) cambia con la luz: a oscuras tiene mucha resistencia y con luz, poca. Junto con otra resistencia forma un divisor de voltaje, que convierte la cantidad de luz en un voltaje que el Arduino puede leer.",
         "Un pin del Arduino entrega muy poca corriente. Para activar un motor o una lámpara se usa un transistor o un relé: una señal pequeña cierra un interruptor que maneja la carga grande, sin que el Arduino la toque."
       ],
-      instrucciones: ["Lee la introducción y los contenidos de la temática.", "Cuando estés listo, pasa a Simula."]
+      instrucciones: ["Lee la introducción y los contenidos de la temática.", "Cuando estés listo, pasa a Modela."]
     },
     simulacion: {
       id: "circuito",
@@ -222,7 +222,7 @@ const UNIDADES = [
     },
     reta: {
       tiempo: "~5 min",
-      titulo: "Reta: el circuito que decide",
+      titulo: "Desafío: el circuito que decide",
       historia: "El dispensador debe activarse solo cuando detecte que es de día. Demuestra que sabes cómo.",
       instrucciones: ["Responde las 3 preguntas.", "Necesitas al menos 2 aciertos."],
       pista: "Recuerda cómo cambia la resistencia del LDR con la luz.",
@@ -269,7 +269,7 @@ const UNIDADES = [
         "Los mecanismos transforman ese movimiento. La compuerta giratoria o la deslizante abren y cierran el paso; el tornillo sin fin empuja la comida a lo largo de un tubo; la rueda dosificadora entrega porciones iguales por cada giro; y la cremallera y piñón convierte un giro en movimiento recto.",
         "La porción depende de tres cosas: el tiempo que el actuador permanece activo, el mecanismo elegido y la velocidad del motor. Si duplicas el tiempo y lo demás no cambia, duplicas la porción."
       ],
-      instrucciones: ["Lee la introducción y los contenidos de la temática.", "Cuando estés listo, pasa a Simula."]
+      instrucciones: ["Lee la introducción y los contenidos de la temática.", "Cuando estés listo, pasa a Modela."]
     },
     simulacion: {
       id: "actuadores",
@@ -300,7 +300,7 @@ const UNIDADES = [
     },
     reta: {
       tiempo: "~5 min",
-      titulo: "Reta: la porción exacta",
+      titulo: "Desafío: la porción exacta",
       historia: "A tu mascota le toca la cena y el dispensador debe entregar la porción justa. Resuelve cómo lograrlo.",
       instrucciones: ["Responde las 3 preguntas.", "Necesitas al menos 2 aciertos."],
       pista: "La porción depende del tiempo, del mecanismo y de la velocidad.",
@@ -347,7 +347,7 @@ const UNIDADES = [
         "Para medir el tiempo hay dos caminos. delay(1000) detiene el programa un segundo: es fácil, pero mientras espera el Arduino no hace nada más. millis() entrega los milisegundos transcurridos desde que arrancó; si comparas el valor actual con el anterior sabes cuánto tiempo pasó, y el programa sigue atento a otras cosas, como un botón.",
         "Pero millis() no sabe qué hora es y se reinicia si se apaga la placa. Por eso se usa un módulo RTC (DS3231): un reloj con batería de respaldo que conserva la hora aunque se vaya la luz, se comunica con el Arduino por el protocolo I2C y puede activar alarmas."
       ],
-      instrucciones: ["Lee la introducción y los contenidos de la temática.", "Cuando estés listo, pasa a Simula."]
+      instrucciones: ["Lee la introducción y los contenidos de la temática.", "Cuando estés listo, pasa a Modela."]
     },
     simulacion: {
       id: "tiempos",
@@ -378,7 +378,7 @@ const UNIDADES = [
     },
     reta: {
       tiempo: "~5 min",
-      titulo: "Reta: la hora de comer",
+      titulo: "Desafío: la hora de comer",
       historia: "El dispensador debe servir comida todos los días a la misma hora, incluso si se va la luz.",
       instrucciones: ["Responde las 3 preguntas.", "Necesitas al menos 2 aciertos."],
       pista: "Piensa en qué módulo guarda la hora aunque se apague el Arduino.",
@@ -427,7 +427,7 @@ const UNIDADES = [
         "Una CPU solo entiende lenguaje de máquina, hecho de ceros y unos. El lenguaje ensamblador usa nombres cortos como ADD o MOV para esas instrucciones: es de bajo nivel y cada tipo de procesador tiene el suyo.",
         "Las hojas de cálculo organizan datos en celdas (números, texto, fechas) y usan fórmulas para procesarlos. Sirven en finanzas y análisis de datos, y también para simular cosas, como una CPU sencilla."
       ],
-      instrucciones: ["Lee la introducción y los contenidos de la temática.", "Cuando estés listo, pasa a Simula."]
+      instrucciones: ["Lee la introducción y los contenidos de la temática.", "Cuando estés listo, pasa a Modela."]
     },
     // Sin simulación por ahora: el paso muestra un espacio reservado.
     practica: {
@@ -449,7 +449,7 @@ const UNIDADES = [
     },
     reta: {
       tiempo: "~5 min",
-      titulo: "Reta: explorador de la CPU",
+      titulo: "Desafío: explorador de la CPU",
       historia: "Viajas por la historia de los computadores. Demuestra que reconoces cada etapa y cada parte de la CPU.",
       instrucciones: ["Responde las 3 preguntas.", "Necesitas al menos 2 aciertos."],
       pista: "Piensa en el trabajo de cada componente y en la tecnología de cada época.",
@@ -498,7 +498,7 @@ const UNIDADES = [
         "NAND y NOR son compuertas universales: con una sola de ellas se puede construir cualquier otra.",
         "En Excel puedes practicar esta lógica: las celdas funcionan como variables y las funciones Y, O y NO reproducen AND, OR y NOT."
       ],
-      instrucciones: ["Lee las ideas.", "Fíjate en la regla de cada compuerta.", "Cuando estés listo, pasa a Simula."]
+      instrucciones: ["Lee las ideas.", "Fíjate en la regla de cada compuerta.", "Cuando estés listo, pasa a Modela."]
     },
     simulacion: {
       id: "compuertas",
@@ -510,7 +510,7 @@ const UNIDADES = [
         "Activa o desactiva los interruptores A y B.",
         "Observa el LED y la fila resaltada de la tabla de verdad."
       ],
-      pista: "Si la salida te sorprende, vuelve a Explora y revisa la regla de esa compuerta.",
+      pista: "Si la salida te sorprende, vuelve a Descubre y revisa la regla de esa compuerta.",
       observar: "¿Con qué combinación de A y B se enciende el LED en AND? ¿Y en XNOR?"
     },
     practica: {
@@ -550,7 +550,7 @@ const UNIDADES = [
     },
     reta: {
       tiempo: "~5 min",
-      titulo: "Reta: elige la compuerta correcta",
+      titulo: "Desafío: elige la compuerta correcta",
       historia: "Eres el ingeniero de un sistema de seguridad. Para cada situación, escoge la solución correcta.",
       instrucciones: ["Responde las 5 preguntas.", "Necesitas al menos 3 aciertos para ganar la insignia."],
       pista: "Piensa en la regla de cada compuerta y en cuántas entradas deben activarse.",
