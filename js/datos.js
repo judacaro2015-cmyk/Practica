@@ -88,7 +88,7 @@ const UNIDADES = [
     grados: [9],
     tema: "Dispensador automático",
     titulo: "Dispensador automático (diseño mecánico)",
-    objetivo: "Comprender el diseño mecánico y el diseño asistido por computadora (CAD) para modelar los elementos de un dispensador automático de alimento para mascotas.",
+    objetivo: "Comprender conceptos fundamentales de diseño electrónico y mecánico para la realización de artefactos tecnológicos.",
     competencias: COMPETENCIAS_DISPENSADOR,
     introduccion: [
     "Antes de fabricar cualquier aparato hay que pensarlo: qué forma tendrá, de qué piezas se compone y cómo se moverán. Eso es el diseño mecánico. Detrás hay física y matemáticas que ya conoces: fuerzas, palancas, engranajes y el torque, que es la fuerza con que algo gira (se calcula multiplicando la fuerza por la distancia al punto de giro).",
@@ -165,7 +165,7 @@ const UNIDADES = [
     grados: [9],
     tema: "Dispensador automático",
     titulo: "Dispensador automático (diseño electrónico)",
-    objetivo: "Reconocer los componentes electrónicos básicos de un dispensador y simular su circuito de control con Arduino en Tinkercad.",
+    objetivo: "Comprender conceptos fundamentales de diseño electrónico y mecánico parala realización de artefactos tecnológicos.",
     competencias: COMPETENCIAS_DISPENSADOR,
     introduccion: [
     "Si la parte mecánica es el cuerpo del dispensador, la electrónica es su sistema nervioso: lleva la energía y las señales a cada parte. Para entenderla necesitas tres ideas: el voltaje (el empuje de la electricidad), la corriente (cuánta electricidad circula) y la resistencia (lo que la frena). La ley de Ohm las relaciona, y por eso un LED necesita una resistencia en serie: sin ella pasaría demasiada corriente y se dañaría.",
@@ -242,7 +242,7 @@ const UNIDADES = [
     grados: [9],
     tema: "Dispensador automático",
     titulo: "Actuadores y mecanismos",
-    objetivo: "Diferenciar los tipos de actuadores y los mecanismos de dispensación, y entender cómo se controla la porción de comida.",
+    objetivo: "Comprender conceptos fundamentales de diseño electrónico y mecánico para la realización de artefactos tecnológicos.",
     competencias: COMPETENCIAS_DISPENSADOR,
     introduccion: [
     "Un sistema automático tiene sensores (sus sentidos), un microcontrolador (su cerebro) y actuadores (sus músculos). Los actuadores son los que convierten una señal eléctrica en movimiento. Conocerás cuatro: el servomotor, que se mueve hasta un ángulo exacto; el motor DC, que gira continuamente y cambia de velocidad con el voltaje; el motor paso a paso, que avanza en pasos muy pequeños (uno de 200 pasos da la vuelta completa en pasos de 1,8°); y el solenoide, un electroimán que empuja o jala un émbolo en línea recta.",
@@ -320,7 +320,7 @@ const UNIDADES = [
     grados: [9],
     tema: "Dispensador automático",
     titulo: "Dispensador automático (control de tiempos)",
-    objetivo: "Programar el control de tiempos de un automatismo con Arduino usando millis(), delay() y un módulo RTC.",
+    objetivo: "Comprender conceptos fundamentales de diseño electrónico y control de tiempos con plataforma Arduino para la realización de artefactos tecnológicos.",
     competencias: COMPETENCIAS_DISPENSADOR,
     introduccion: [
     "Un automatismo es un sistema que realiza una tarea por sí solo siguiendo reglas, sin que una persona intervenga. Los hay eléctricos, electrónicos, hidráulicos y neumáticos. El nuestro será electrónico y lo controlará un Arduino, una placa de hardware libre con un microcontrolador, pines de entrada y salida, y la posibilidad de conectarle sensores y actuadores.",
@@ -398,7 +398,7 @@ const UNIDADES = [
     grados: [9],
     tema: "Computación",
     titulo: "Principios de computación",
-    objetivo: "Describir la función de la CPU, sus componentes y su evolución, y reconocer el lenguaje ensamblador y las hojas de cálculo como herramientas de la computación.",
+    objetivo: "Comprender el funcionamiento de las computadoras a través del modelamiento del comportamiento interno de un procesador desarrollado en la hoja de cálculo EXCEL.",
     competencias: COMPETENCIAS_INFORMATICA,
     introduccion: [
     "La CPU es el cerebro de un computador: la unidad central de procesamiento que ejecuta las instrucciones de los programas. Tu celular, tu consola y el Arduino del dispensador tienen algo parecido. Recorreremos su historia: de los computadores gigantes con tubos de vacío (como el ENIAC) a los transistores, los circuitos integrados y los microprocesadores de hoy, con varios núcleos, tarjetas gráficas (GPU) y aceleradores para inteligencia artificial.",
@@ -469,7 +469,7 @@ const UNIDADES = [
     grados: [9],
     tema: "Electrónica digital",
     titulo: "Compuertas lógicas",
-    objetivo: "Identificar las siete compuertas lógicas, predecir su salida a partir de las entradas y reproducir su lógica con funciones de Excel.",
+    objetivo: "Comprender cómo las compuertas lógicas reciben señales de entrada y entregan una decisión de salida, simulándolas en una hoja de cálculo (EXCEL) con tablas de verdad y formulas",
     competencias: COMPETENCIAS_INFORMATICA,
     introduccion: [
     "Los computadores y el Arduino toman decisiones con electricidad. Para eso usan compuertas lógicas: circuitos que reciben entradas de 1 (encendido, voltaje alto) o 0 (apagado, voltaje bajo) y entregan una salida que depende solo de esas entradas. A ese tipo de circuitos se les llama lógica combinacional, y su matemática es el álgebra booleana.",
