@@ -153,7 +153,7 @@ const Actividades = (function () {
         const aprobo = aciertos >= (cfg.minimo || 0);
         cont.replaceChildren(
           h("p", { class: "resultado", text: "Resultado: " + aciertos + " de " + total + "." }),
-          h("p", { class: "fb", text: aprobo ? "¡Muy bien!" : "Repasa el paso Explora y vuelve a intentarlo." }),
+          h("p", { class: "fb", text: aprobo ? "¡Muy bien!" : "Repasa el paso Descubre y vuelve a intentarlo." }),
           aprobo ? null : h("button", { type: "button", class: "btn btn-ambar", style: "align-self:flex-start", onclick: () => { i = 0; aciertos = 0; pintar(); } }, "Reintentar"));
         if (alTerminar) alTerminar(aciertos, total, aprobo);
         return;
