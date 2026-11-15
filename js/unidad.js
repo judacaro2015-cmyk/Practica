@@ -67,14 +67,15 @@
                 h("small", { text: "Evidencia de aprendizaje" }), h("p", { text: c.evidencia }))))
         : espacioLibre("Espacio para las competencias de esta guía (campo competencias en js/datos.js).")));
     if (paso.instrucciones && paso.instrucciones.length) {
-      cajas.push(h("div", { class: "panel" }, h("h3", { text: "Instrucciones" }), lista(paso.instrucciones)));
+      cajas.push(h("details", { class: "panel subtemas" }, h("summary", { text: "Instrucciones" }),
+        h("div", { style: "margin-top:10px" }, lista(paso.instrucciones))));
     }
     if (paso.pista) {
       cajas.push(h("div", { class: "panel" }, h("h3", { text: "Pista" }), h("p", { text: paso.pista })));
     }
     if (u.vocabulario && u.vocabulario.length) {
-      cajas.push(h("div", { class: "panel" }, h("h3", { text: "Vocabulario" }),
-        h("dl", {}, u.vocabulario.map(v => [h("dt", { text: v.t }), h("dd", { text: v.d })]))));
+      cajas.push(h("details", { class: "panel subtemas" }, h("summary", { text: "Vocabulario" }),
+        h("dl", { style: "margin-top:10px" }, u.vocabulario.map(v => [h("dt", { text: v.t }), h("dd", { text: v.d })]))));
     }
     elGuia.replaceChildren(...cajas);
   }
