@@ -12,7 +12,6 @@
      - unidad.introduccion   : introducción completa (paso Descubre)
      - unidad.explora.texto  : contenido del paso Descubre
    ========================================================== */
-
 const PROYECTO = {
   nombre: "TecnoQuest OEA",
   frase: "Aprende tecnología modelando, jugando y superando desafíos.",
