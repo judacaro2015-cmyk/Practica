@@ -131,3 +131,31 @@ if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
     navigator.serviceWorker.register("sw.js").catch(() => { /* ignorar */ });
   });
 }
+
+/* Botón "Escuchar": lee textos con la voz del dispositivo (no descarga audio).
+   Si el navegador no tiene síntesis de voz, no se muestra. */
+function botonEscuchar(obtenerTextos, etiqueta) {
+  if (!("speechSynthesis" in window) || typeof SpeechSynthesisUtterance === "undefined") return null;
+  const b = h("button", { type: "button", class: "btn btn-borde-o escuchar", "aria-pressed": "false" });
+  const poner = leyendo => {
+    b.textContent = (leyendo ? "■ Detener lectura" : "▶ Escuchar") + (etiqueta ? " " + etiqueta : "");
+    b.setAttribute("aria-pressed", String(leyendo));
+  };
+  poner(false);
+  b.addEventListener("click", () => {
+    const sy = window.speechSynthesis;
+    if (b.getAttribute("aria-pressed") === "true") { sy.cancel(); return; }
+    sy.cancel();
+    const partes = obtenerTextos().filter(t => t && String(t).trim());
+    partes.forEach((t, i) => {
+      const v = new SpeechSynthesisUtterance(String(t));
+      v.lang = "es-CO";
+      if (i === 0) v.onstart = () => poner(true);
+      if (i === partes.length - 1) v.onend = () => poner(false);
+      v.onerror = () => poner(false);
+      sy.speak(v);
+    });
+  });
+  return b;
+}
+window.addEventListener("pagehide", () => { try { speechSynthesis.cancel(); } catch (e) { /* sin voz */ } });
