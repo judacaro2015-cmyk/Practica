@@ -90,6 +90,7 @@ const SIMULACIONES = {};
         nota.textContent = unaEntrada
           ? "NOT con A=" + est.a + " da " + salida + "."
           : est.g + " con A=" + est.a + " y B=" + est.b + " da " + salida + ".";
+        svg.setAttribute("aria-label", "Circuito con la compuerta " + est.g + ". " + nota.textContent);
       }
 
       cont.append(grupo, controles, svg, tabla, nota);
@@ -149,12 +150,18 @@ const SIMULACIONES = {};
   }
 
   function lectura(items) {
-    return h("div", { class: "lectura" }, items.map(([t, v]) => h("div", {}, t, h("strong", { text: String(v) }))));
+    return h("div", { class: "lectura", role: "group", "aria-label": "Valores actuales" }, items.map(([t, v]) => h("div", {}, t, h("strong", { text: String(v) }))));
   }
 
   function aviso(el, tipo, texto) {
     el.className = "aviso-sim" + (tipo ? " " + tipo : "");
     el.textContent = texto;
+    /* El dibujo no se "ve" con lector de pantalla: su descripción incluye el estado actual. */
+    const sv = el.parentNode && el.parentNode.querySelector("svg.sim-svg");
+    if (sv) {
+      if (!sv.dataset.base) sv.dataset.base = sv.getAttribute("aria-label") || "";
+      sv.setAttribute("aria-label", sv.dataset.base + ". Estado actual: " + texto);
+    }
   }
 
   /* Varias simulaciones pequeñas dentro de una, con pestañas.
@@ -301,7 +308,7 @@ const SIMULACIONES = {};
       const pulso = (1 + ang / 180).toFixed(2);
       const abierta = ang >= 80;
       lect.replaceChildren(lectura([["Ángulo", ang + "°"], ["Pulso de control", pulso + " ms"], ["Compuerta", abierta ? "abierta" : "cerrada"]]));
-      aviso(av, abierta ? "" : "ojo", abierta ? "El brazo abre la compuerta: cae el alimento." : "La compuerta está cerrada: no cae alimento.");
+      aviso(av, abierta ? "" : "ojo", "Ángulo " + ang + "°, pulso de " + pulso + " ms. " + (abierta ? "El brazo abre la compuerta: cae el alimento." : "La compuerta está cerrada: no cae alimento."));
     }
     p.append(d.el, rapidos, svg, lect, av,
       h("p", { class: "sim-nota", text: "Un servomotor se coloca en el ángulo que indica el ancho del pulso: 1 ms ≈ 0° y 2 ms ≈ 180°." }));
@@ -336,7 +343,7 @@ const SIMULACIONES = {};
         helice.setAttribute("style", "animation-duration:" + (6 / est.v).toFixed(2) + "s;animation-direction:" + (est.inv ? "reverse" : "normal"));
       }
       lect.replaceChildren(lectura([["Voltaje", est.v + " V"], ["Velocidad aproximada", rpm + " rpm"], ["Sentido", est.inv ? "contrario" : "normal"]]));
-      aviso(av, est.v === 0 ? "ojo" : "", est.v === 0 ? "Sin voltaje el motor está detenido." : "Más voltaje, más velocidad. Invertir la polaridad invierte el giro.");
+      aviso(av, est.v === 0 ? "ojo" : "", est.v === 0 ? "Sin voltaje el motor está detenido." : "Motor a " + est.v + " V, unas " + rpm + " rpm, giro " + (est.inv ? "contrario" : "normal") + ". Más voltaje, más velocidad; invertir la polaridad invierte el giro.");
     }
     p.append(d.el, h("div", { class: "sim-grupo" }, inv), svg, lect, av);
     pintar();
@@ -372,7 +379,7 @@ const SIMULACIONES = {};
       aguja.style.transform = "rotate(" + grados + "deg)";
       const mod = ((grados % 360) + 360) % 360;
       lect.replaceChildren(lectura([["Pasos dados", n], ["Posición", mod.toFixed(1) + "°"], ["Vueltas", (grados / 360).toFixed(2)]]));
-      aviso(av, "", "Cada paso gira exactamente 1,8°: por eso es muy preciso para posicionar.");
+      aviso(av, "", n + " pasos dados: el eje está en " + mod.toFixed(1) + "° (" + (grados / 360).toFixed(2) + " vueltas). Cada paso gira exactamente 1,8°, por eso es muy preciso para posicionar.");
     }
     p.append(botones, svg, lect, av,
       h("p", { class: "sim-nota", text: "Un motor paso a paso típico da 200 pasos por vuelta (360° ÷ 200 = 1,8° por paso)." }));
