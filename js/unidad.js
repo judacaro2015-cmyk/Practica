@@ -75,7 +75,7 @@
     }
     if (u.vocabulario && u.vocabulario.length) {
       cajas.push(h("details", { class: "panel subtemas" }, h("summary", { text: "Vocabulario" }),
-        botonEscuchar(() => u.vocabulario.map(v => v.t + ": " + v.d)) || "",
+        escuchar(() => u.vocabulario.map(v => v.t + ": " + v.d)) || "",
         h("dl", { style: "margin-top:10px" }, u.vocabulario.map(v => [h("dt", { text: v.t }), h("dd", { text: v.d })]))));
     }
     elGuia.replaceChildren(...cajas);
@@ -114,7 +114,7 @@
 
     paneles.push(h("div", { class: "panel" },
       h("h2", { text: "Introducción" }),
-      intro.length ? botonEscuchar(() => [].concat(u.introduccion)) : null,
+      intro.length ? escuchar(() => [].concat(u.introduccion)) : null,
       intro.length
         ? h("div", { class: "texto-largo" }, intro)
         : espacioLibre("Espacio para la introducción de esta temática: aquí se explican sus generalidades. Escríbela en js/datos.js, en el campo introduccion de la unidad.")));
@@ -129,7 +129,7 @@
       h("div", { class: "panel-cabeza" },
         h("h2", { text: "Descubre" }),
         h("span", { class: "tiempo", style: "color:var(--verde)", text: e.tiempo || "" })),
-      texto.length ? botonEscuchar(() => [].concat(e.texto)) : null,
+      texto.length ? escuchar(() => [].concat(e.texto)) : null,
       texto.length
         ? h("div", { class: "texto-largo" }, texto,
             e.imagen ? h("img", { src: e.imagen.src, alt: e.imagen.alt || "", loading: "lazy" }) : null)
@@ -259,12 +259,23 @@
     ];
   }
 
+  /* Si comun.js está desactualizado, la página sigue funcionando (sin el botón Escuchar). */
+  const escuchar = typeof botonEscuchar === "function" ? botonEscuchar : () => null;
+
   const CONSTRUCTORES = { explora: pasoExplora, simula: pasoSimula, practica: pasoPractica, reta: pasoReta };
 
   function pintar() {
     pintarPasos();
     pintarGuia();
-    elCentro.replaceChildren(...CONSTRUCTORES[PASOS[actual].id]().filter(Boolean));
+    try {
+      elCentro.replaceChildren(...CONSTRUCTORES[PASOS[actual].id]().filter(Boolean));
+    } catch (e) {
+      console.error(e);
+      elCentro.replaceChildren(h("div", { class: "panel" },
+        h("h2", { text: "No se pudo mostrar este paso" }),
+        h("p", { text: "Error: " + e.message }),
+        h("p", { text: "Casi siempre significa que algún archivo de GitHub no se actualizó: sube de nuevo datos.js, comun.js, actividades.js, simulaciones.js y unidad.js (carpeta js) y recarga con Ctrl+F5." })));
+    }
     btnAnt.disabled = actual === 0;
     btnAnt.textContent = actual === 0 ? "‹ Anterior" : "‹ Anterior: " + PASOS[actual - 1].nombre;
     btnSig.textContent = actual === PASOS.length - 1
