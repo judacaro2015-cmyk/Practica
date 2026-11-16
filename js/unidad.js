@@ -75,6 +75,7 @@
     }
     if (u.vocabulario && u.vocabulario.length) {
       cajas.push(h("details", { class: "panel subtemas" }, h("summary", { text: "Vocabulario" }),
+        botonEscuchar(() => u.vocabulario.map(v => v.t + ": " + v.d)) || "",
         h("dl", { style: "margin-top:10px" }, u.vocabulario.map(v => [h("dt", { text: v.t }), h("dd", { text: v.d })]))));
     }
     elGuia.replaceChildren(...cajas);
@@ -113,6 +114,7 @@
 
     paneles.push(h("div", { class: "panel" },
       h("h2", { text: "Introducción" }),
+      intro.length ? botonEscuchar(() => [].concat(u.introduccion)) : null,
       intro.length
         ? h("div", { class: "texto-largo" }, intro)
         : espacioLibre("Espacio para la introducción de esta temática: aquí se explican sus generalidades. Escríbela en js/datos.js, en el campo introduccion de la unidad.")));
@@ -127,6 +129,7 @@
       h("div", { class: "panel-cabeza" },
         h("h2", { text: "Descubre" }),
         h("span", { class: "tiempo", style: "color:var(--verde)", text: e.tiempo || "" })),
+      texto.length ? botonEscuchar(() => [].concat(e.texto)) : null,
       texto.length
         ? h("div", { class: "texto-largo" }, texto,
             e.imagen ? h("img", { src: e.imagen.src, alt: e.imagen.alt || "", loading: "lazy" }) : null)
@@ -187,6 +190,7 @@
         h("div", { class: "panel-cabeza" },
           h("h2", { text: "Modela · " + (sm.nombre || "") }),
           h("span", { class: "tiempo", style: "color:var(--violeta)", text: sm.tiempo || "" })),
+        motor ? h("p", { class: "solo-lector", text: "Esta simulación se maneja con botones y deslizadores. Cada vez que cambias uno, se anuncia el resultado y se actualiza la descripción del dibujo." }) : null,
         area, aviso),
       sm.observar ? h("div", { class: "observar" }, h("h3", { text: "Qué observar" }), h("p", { text: sm.observar })) : null
     ];
@@ -270,8 +274,12 @@
 
   function ir(i) {
     actual = Math.max(0, Math.min(PASOS.length - 1, i));
+    try { speechSynthesis.cancel(); } catch (e) { /* sin voz */ }
     pintar();
     window.scrollTo(0, 0);
+    /* Lector de pantalla: anuncia el paso nuevo moviendo el foco a su título. */
+    const t = elCentro.querySelector("h2");
+    if (t) { t.setAttribute("tabindex", "-1"); t.focus({ preventScroll: true }); }
   }
 
   btnAnt.addEventListener("click", () => ir(actual - 1));
