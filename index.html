@@ -11,6 +11,7 @@
 </head>
 <body>
 
+<a class="saltar" href="#contenido">Saltar al contenido</a>
 <header class="cabecera">
   <div class="contenedor interno">
     <a class="marca" href="index.html"><span class="escudos"><img class="escudo" src="img/escudo-colegio.jpg" alt="" width="46" height="46"><img class="escudo" src="img/escudo-universidad.png" alt="" width="46" height="46"></span><span class="marca-nombre" data-p="nombre">[NOMBRE DEL PROYECTO]</span></a>
@@ -25,7 +26,7 @@
   </div>
 </header>
 
-<main>
+<main id="contenido" tabindex="-1">
   <!-- PORTADA -->
   <section class="portada">
     <div class="bits-deco" aria-hidden="true">0110 1001 1100 0101 1010 0011 1110 0100 0111 1000 0001 1011 0101 1100 0010 1111 0110 1001 1100 0101 1010 0011 1110 0100</div>
@@ -45,7 +46,7 @@
       </div>
       <div class="tarjeta-progreso" aria-label="Tu progreso">
         <div class="tp-fila"><strong>Tu progreso</strong><span class="tp-nivel" id="tp-nivel">Nivel 1</span></div>
-        <div class="barra" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="tp-barra"><span class="barra-fill" id="tp-fill" style="width:0%"></span></div>
+        <div class="barra" role="progressbar" aria-label="Progreso total" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="tp-barra"><span class="barra-fill" id="tp-fill" style="width:0%"></span></div>
         <div class="tp-texto" id="tp-texto">0 pasos completados</div>
         <div class="slots" id="tp-slots"></div>
       </div>
